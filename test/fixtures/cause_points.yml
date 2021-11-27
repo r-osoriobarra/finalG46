@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goal: 1
+  cause: one
+  point: one
+
+two:
+  goal: 1
+  cause: two
+  point: two
