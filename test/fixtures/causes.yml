@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  story: MyString
+  start_date: 2021-11-27
+  end_date: 2021-11-27
+  reward: MyString
+  pyme_project: one
+
+two:
+  title: MyString
+  story: MyString
+  start_date: 2021-11-27
+  end_date: 2021-11-27
+  reward: MyString
+  pyme_project: two
