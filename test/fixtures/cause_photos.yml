@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cause_photo: MyString
+  cause: one
+
+two:
+  cause_photo: MyString
+  cause: two
