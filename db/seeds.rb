@@ -20,7 +20,7 @@ end
         name:"name",
         surname:"surname",
         username:"username#{u}",
-        email: "user#{u}@mail.com",
+        email: "userfounder#{u}@mail.com",
         password: "123123",
         password_confirmation:"123123",
         phone_number: "16452398",
@@ -36,7 +36,7 @@ end
         name:"name",
         surname:"surname",
         username:"username#{u}",
-        email: "user#{u}@mail.com",
+        email: "userentrepeneur#{u}@mail.com",
         password: "123123",
         password_confirmation:"123123",
         phone_number: "16452398",
@@ -50,7 +50,7 @@ end
 User.create!(
     name:"name",
     surname:"surname",
-    username:"username#{u}",
+    username:"username",
     email: "admin@mail.com",
     password: "123123",
     password_confirmation:"123123",
@@ -61,15 +61,16 @@ User.create!(
 )
 
 #PymeProyects
+
 10.times do |p|
-    PymeProyects.create!(
+    PymeProject.create!(
         name: "project #{p}",
         description: Faker::Lorem.paragraph,
         start_date: Date.today,
-        industry: "Industry"
-        website: "https://project#{p}.com"
+        industry: "Industry",
+        website: "https://project#{p}.com",
         address: "Address pyme#{p}",
-        user_id: rand(15..20)
+        user_id: rand(16..20)
     )
 end
 
@@ -81,7 +82,7 @@ end
         start_date: Date.today,
         end_date: Date.today + 30,
         reward: "user offers a reward for the supports (discount)",
-        pyme_project: c
+        pyme_project_id: c+1
     )
 end
 
@@ -106,8 +107,8 @@ end
 10.times do |c|
     CausePoint.create!(
         goal:rand(100..5000),
-        cause_id: c,
-        point_id: 0
+        cause_id: (c+1),
+        point_id: 1
     )   
 end
 
@@ -121,12 +122,14 @@ end
 end
 
 #reports
-Report.create!(
-    title: Faker::DcComics.title,
-    description: Faker::Books::Lovecraft.sentences;
-    accomplished: [true, false].sample
-)
-
+10.times do |r|
+    Report.create!(
+        title: Faker::DcComics.title,
+        description: Faker::Books::Lovecraft.sentences,
+        accomplished: [true, false].sample,
+        cause_id: (r+1)
+    )
+end
 #Order
 5.times do |o|
     Order.create(
