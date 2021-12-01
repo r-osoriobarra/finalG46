@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/new'
-  get 'users/show'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/create'
-  get 'users/destroy'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
   devise_for :users
+  resources :users
 end

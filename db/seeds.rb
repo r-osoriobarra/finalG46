@@ -1,6 +1,6 @@
 #UserTypes
 #(1: admin, 2:founder (default), 3:entrepeneur)
-3.times do |t|
+2.times do |t|
     UserType.create!(
         name: t
     )
@@ -42,7 +42,7 @@ end
         phone_number: "16452398",
         address: "Address user#{u} home",
         user_category_id: rand(1..4),
-        user_type_id: 3,
+        user_type_id: 2,
     )
 end
 
