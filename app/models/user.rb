@@ -3,9 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  #TODO: agregar todos los dependent destroy a los modelos que tengan FK asociadas
+  
   belongs_to :user_type
-  has_many :orders
-  has_many :pyme_projects
-  has_many :comments
+  has_many :orders, dependent: :destroy
+  has_many :pyme_projects, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

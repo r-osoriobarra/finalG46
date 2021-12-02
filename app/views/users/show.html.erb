@@ -1,2 +1,13 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div id="user">
+    <p><%= @user.name %></p>
+    <p><%= @user.surname %></p>
+    <p><%= @user.username %></p>
+    <p><%= @user.phone_number %></p>
+    <p><%= @user.address %></p>
+</div>
+
+<div id="edit-btn">
+    <%= link_to 'Editar', edit_user_path(current_user.id), remote: true %>
+</div>

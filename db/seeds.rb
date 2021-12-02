@@ -14,29 +14,12 @@ end
 end
 
 #Users
-#founders
-15.times do |u|
+20.times do |u|
     User.create!(
         name:"name",
         surname:"surname",
         username:"username#{u}",
-        email: "userfounder#{u}@mail.com",
-        password: "123123",
-        password_confirmation:"123123",
-        phone_number: "16452398",
-        address: "Address user#{u} home",
-        user_category_id: rand(1..4),
-        user_type_id: 2,
-    )
-end
-
-#entrepeneurs
-5.times do |u|
-    User.create!(
-        name:"name",
-        surname:"surname",
-        username:"username#{u}",
-        email: "userentrepeneur#{u}@mail.com",
+        email: "user#{u}@mail.com",
         password: "123123",
         password_confirmation:"123123",
         phone_number: "16452398",
@@ -61,7 +44,6 @@ User.create!(
 )
 
 #PymeProyects
-
 10.times do |p|
     PymeProject.create!(
         name: "project #{p}",
@@ -70,7 +52,7 @@ User.create!(
         industry: "Industry",
         website: "https://project#{p}.com",
         address: "Address pyme#{p}",
-        user_id: rand(16..20)
+        user_id: rand(1..20)
     )
 end
 

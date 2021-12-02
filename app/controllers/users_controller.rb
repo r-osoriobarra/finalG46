@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
-  def index
-  end
-
-  def new
-  end
-
+  before_action :set_user, only: [:show, :edit, :update]
+  
   def show
   end
 
@@ -12,11 +8,21 @@ class UsersController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+        if @user.update(user_params)
+            format.js { render nothing: true, notice: 'Tus datos han sido actualizados.' }
+        else
+            format.html { redirect_to edit_profile_path(@user.id), notice: 'No se han podido actualizar tus datos.' }
+        end
+    end
   end
 
-  def create
+  private
+  def user_params
+    params.require(:user).permit(:name, :surname, :phone_number, :address)
   end
 
-  def destroy
+  def set_user
+    @user = User.find(params[:id])
   end
 end

@@ -38,4 +38,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.main_app_name = ["Apañame.org"]
+  config.included_models = ["User", "Cause", "PymeProject"]
 end
