@@ -1,2 +1,2 @@
-$('#user').html('<%= j render('users/form') %>');   
+$('#user').html('<%= j render('users/form', user: @user) %>');   
 $('#edit-btn').hide();

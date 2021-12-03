@@ -1,0 +1,46 @@
+<%= form_with(model: project, remote: true) do |f| %>
+    <% if project.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2>Esta categoría no se pudo crear por las siguientes razones:</h2>
+            <ul>
+                <% project.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>   
+
+    <div class="form-group">
+        <%= f.label :start_date %>
+        <%= f.date_field :start_date %>
+    </div>  
+
+    <div class="form-group">
+        <%= f.label :industry %>
+        <%= f.text_field :industry %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :website %>
+        <%= f.text_field :website %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :address %>
+        <%= f.text_field :address %>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit %>
+    </div>
+<% end %>

@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_28_233407) do
+ActiveRecord::Schema.define(version: 2021_12_03_015159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "name"
+  end
 
   create_table "cause_points", force: :cascade do |t|
     t.integer "goal"
@@ -94,7 +100,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_233407) do
     t.integer "name"
   end
 
-  create_table "pyme_projects", force: :cascade do |t|
+  create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.date "start_date"
@@ -104,7 +110,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_233407) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_pyme_projects_on_user_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -115,12 +121,6 @@ ActiveRecord::Schema.define(version: 2021_11_28_233407) do
     t.string "description"
     t.boolean "accomplished"
     t.index ["cause_id"], name: "index_reports_on_cause_id"
-  end
-
-  create_table "user_categories", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "name"
   end
 
   create_table "user_types", force: :cascade do |t|
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 2021_11_28_233407) do
 
   add_foreign_key "cause_points", "causes"
   add_foreign_key "cause_points", "points"
-  add_foreign_key "causes", "pyme_projects"
+  add_foreign_key "causes", "projects", column: "pyme_project_id"
   add_foreign_key "comments", "causes"
   add_foreign_key "comments", "users"
   add_foreign_key "order_items", "orders"
@@ -160,6 +160,6 @@ ActiveRecord::Schema.define(version: 2021_11_28_233407) do
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"
   add_foreign_key "payments", "payment_methods"
-  add_foreign_key "pyme_projects", "users"
+  add_foreign_key "projects", "users"
   add_foreign_key "reports", "causes"
 end

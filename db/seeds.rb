@@ -8,7 +8,7 @@ end
 
 #User_categories
 4.times do |c|
-    UserCategory.create!(
+    Category.create!(
         name: c
     )
 end
@@ -43,9 +43,9 @@ User.create!(
     user_type_id: 1,
 )
 
-#PymeProyects
+#Proyects
 10.times do |p|
-    PymeProject.create!(
+    Project.create!(
         name: "project #{p}",
         description: Faker::Lorem.paragraph,
         start_date: Date.today,
@@ -64,7 +64,7 @@ end
         start_date: Date.today,
         end_date: Date.today + 30,
         reward: "user offers a reward for the supports (discount)",
-        pyme_project_id: c+1
+        project_id: c+1
     )
 end
 

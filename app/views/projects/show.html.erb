@@ -1,0 +1,8 @@
+<h1>Project#show</h1>
+<div id="user_category">
+    <p><%= @project.name %></p>
+</div>
+
+<%= link_to 'Editar', edit_project_path(@project.id), local: true %> |
+<%= link_to 'Eliminar', project_path(@project.id), method: :delete,  local: true, data: {confirmation: 'Estás seguro que quieres eliminar este proyecto?'} %>
+
