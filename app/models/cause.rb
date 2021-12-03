@@ -1,5 +1,5 @@
 class Cause < ApplicationRecord
-  belongs_to :pyme_project
+  belongs_to :project
   has_one :report
   has_many :cause_points
   has_many :comments

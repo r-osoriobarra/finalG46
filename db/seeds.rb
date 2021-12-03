@@ -1,5 +1,4 @@
 #UserTypes
-#(1: admin, 2:founder (default), 3:entrepeneur)
 2.times do |t|
     UserType.create!(
         name: t
@@ -24,7 +23,7 @@ end
         password_confirmation:"123123",
         phone_number: "16452398",
         address: "Address user#{u} home",
-        user_category_id: rand(1..4),
+        category_id: rand(1..4),
         user_type_id: 2,
     )
 end
@@ -39,7 +38,7 @@ User.create!(
     password_confirmation:"123123",
     phone_number: "16452398",
     address: "Address admin home",
-    user_category_id: rand(1..4),
+    category_id: rand(1..4),
     user_type_id: 1,
 )
 

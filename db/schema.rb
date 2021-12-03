@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_015159) do
+ActiveRecord::Schema.define(version: 2021_12_03_025029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2021_12_03_015159) do
     t.date "start_date"
     t.date "end_date"
     t.string "reward"
-    t.bigint "pyme_project_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pyme_project_id"], name: "index_causes_on_pyme_project_id"
+    t.index ["project_id"], name: "index_causes_on_project_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -140,19 +140,19 @@ ActiveRecord::Schema.define(version: 2021_12_03_015159) do
     t.string "username"
     t.string "phone_number"
     t.string "address"
-    t.bigint "user_category_id"
+    t.bigint "category_id"
     t.bigint "user_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["user_category_id"], name: "index_users_on_user_category_id"
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
   add_foreign_key "cause_points", "causes"
   add_foreign_key "cause_points", "points"
-  add_foreign_key "causes", "projects", column: "pyme_project_id"
+  add_foreign_key "causes", "projects"
   add_foreign_key "comments", "causes"
   add_foreign_key "comments", "users"
   add_foreign_key "order_items", "orders"
