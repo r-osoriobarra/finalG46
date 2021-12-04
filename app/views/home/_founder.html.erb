@@ -1,3 +1,42 @@
-<%= link_to 'Agregar un proyecto', new_project_path, class:'btn btn-primary'  %>
-<%= link_to 'Agregar una causa', new_cause_path, class:'btn btn-success'  %>
+<div id="add" class="mb-4">
+    <%= link_to 'Agregar un proyecto', new_project_path, class:'btn btn-primary'  %>
+    <%= link_to 'Agregar una causa', new_cause_path, class:'btn btn-success'  %>
+</div>
+
+
+<% @causes.in_groups_of(2, false).each do |group| %>
+    <div class="row">
+        <% group.each do |cause| %>
+            <div class="col">
+                <div class="card">
+                    <img src="" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= cause.title %></h5>
+                        <p class="card-text "><%= cause.story %></p>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Meta:</strong>
+                                <strong>[0--------Barra de meta -------x pts]</strong>
+                            </div>
+                        </div>
+                        <div class="row my-5">
+                            <div class="col">
+                                <strong>Desde:</strong><%= cause.start_date %>
+                                <strong>Hasta: </strong><%= cause.end_date %>
+                            </div>
+                            <div class="col">
+                            </div>
+                            <div class="col">
+                                <p>Recompensas: </p><%= cause.reward %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+
+
+
 
