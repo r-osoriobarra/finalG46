@@ -1,4 +1,7 @@
-<h1>Landing Page</h1>
-<%= link_to 'Agregar un proyecto', new_project_path, class:'btn btn-primary'  %>
-<%= link_to 'Agregar una causa', new_cause_path, class:'btn btn-success'  %>
 
+<h1>Bienvenido a Apañame.org</h1>
+<% if user_signed_in? %>
+    <%= render 'founder' %>
+<% else %>
+    <%= render 'visitor' %>
+<% end %>
