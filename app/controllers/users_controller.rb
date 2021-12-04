@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   
   def show
+    @my_causes = User.my_causes(current_user)
   end
 
   def edit
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :surname, :phone_number, :address)
+    params.require(:user).permit(:name, :surname, :username, :phone_number, :address)
   end
 
   def set_user

@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   get 'user/profile/:id', to:'users#show', as: 'profile'
 
-  resources :projects, except: [:index]
+  resources :projects
+  resources :causes
 
   devise_for :users
 end

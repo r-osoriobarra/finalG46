@@ -1,13 +1,36 @@
 <h1>Users#show</h1>
 
 <div id="user">
+    <strong>Nombre: </strong>
     <p><%= @user.name %></p>
+    
+    <strong>Apellidos: </strong>
     <p><%= @user.surname %></p>
+
+    <strong>Username: </strong>
     <p><%= @user.username %></p>
+
+    <strong>Telefono: </strong>
     <p><%= @user.phone_number %></p>
+
+    <strong>Direccion: </strong>
     <p><%= @user.address %></p>
 </div>
 
 <div id="edit-btn">
     <%= link_to 'Editar', edit_user_path(current_user.id), remote: true %>
 </div>
+
+<h2>Mis Emprendimientos</h2>
+<ul>
+    <% current_user.projects.each do |project| %>
+        <li><%= project.name %> | <%= link_to 'ver', project_path(project.id)%></li>
+    <% end %>
+</ul>
+
+<h2>Mis Causas</h2>
+<ul>
+    <% @my_causes.each do |cause| %>
+        <li><%= cause.title %> | <%= link_to 'ver', cause_path(cause.id)%></li>
+    <% end %>
+</ul>

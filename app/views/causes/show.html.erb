@@ -1,0 +1,25 @@
+<h1>Cause#show</h1>
+<div id="cause">
+    <strong>Titulo: </strong>
+    <p><%= @cause.title %></p>
+    
+    <strong>Descripcion: </strong>
+    <p><%= @cause.story %></p>
+
+    <strong>Fecha de inicio: </strong>
+    <p><%= @cause.start_date %></p>
+
+    <strong>Fecha de termino: </strong>
+    <p><%= @cause.end_date %></p>
+
+    <strong>Recompensa: </strong>
+    <p><%= @cause.reward %></p>
+
+    <strong>Emprendimiento: </strong>
+    <p><%= @cause.project.name %></p>
+
+</div>
+
+<%= link_to 'Editar', edit_cause_path(@cause.id), local: true %> |
+<%= link_to 'Eliminar', cause_path(@cause.id), method: :delete,  local: true, data: {confirm: 'Estás seguro que quieres eliminar esta causa?'} %> |
+<%= link_to 'Volver', profile_path(current_user) %>

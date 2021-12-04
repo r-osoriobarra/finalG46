@@ -1,8 +1,29 @@
 <h1>Project#show</h1>
-<div id="user_category">
+<div id="project">
+    <strong>Emprendimiento: </strong>
     <p><%= @project.name %></p>
+    
+    <strong>Acerca del proyecto: </strong>
+    <p><%= @project.description %></p>
+
+    <strong>Funcionando desde: </strong>
+    <p><%= @project.start_date %></p>
+
+    <strong>Rubro: </strong>
+    <p><%= @project.industry %></p>
+
+    <strong>Sitio web: </strong>
+    <p><%= @project.website %></p>
+
+    <strong>Causas de este proyecto: </strong>
+    <ul>
+        <% @project.causes.each do |cause| %>
+            <li><%= cause.title %> | <%= link_to "ver", cause_path(cause.id) %> </li>
+        <% end %>
+    </ul>
 </div>
 
-<%= link_to 'Editar', edit_project_path(@project.id), local: true %> |
-<%= link_to 'Eliminar', project_path(@project.id), method: :delete,  local: true, data: {confirm: 'Estás seguro que quieres eliminar este proyecto?'} %>
+<%= link_to 'Editar', edit_project_path(@project.id), local: true %> | 
+<%= link_to 'Eliminar', project_path(@project.id), method: :delete,  local: true, data: {confirm: 'Estás seguro que quieres eliminar este proyecto?'} %> |
+<%= link_to "Volver", profile_path(current_user)  %>
 
