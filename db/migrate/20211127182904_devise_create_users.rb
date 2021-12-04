@@ -39,7 +39,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone_number
       t.string :address
       t.references :user_category
-      t.references :user_type
+      t.references :user_type, default: 1
 
       t.timestamps null: false
     end

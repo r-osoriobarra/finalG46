@@ -6,6 +6,6 @@ class User < ApplicationRecord
   
   belongs_to :user_type
   has_many :orders, dependent: :destroy
-  has_many :pyme_projects, dependent: :destroy
+  has_many :projects, dependent: :destroy
   has_many :comments, dependent: :destroy
 end

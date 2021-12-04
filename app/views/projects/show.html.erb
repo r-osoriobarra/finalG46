@@ -4,5 +4,5 @@
 </div>
 
 <%= link_to 'Editar', edit_project_path(@project.id), local: true %> |
-<%= link_to 'Eliminar', project_path(@project.id), method: :delete,  local: true, data: {confirmation: 'Estás seguro que quieres eliminar este proyecto?'} %>
+<%= link_to 'Eliminar', project_path(@project.id), method: :delete,  local: true, data: {confirm: 'Estás seguro que quieres eliminar este proyecto?'} %>
 

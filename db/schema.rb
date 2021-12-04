@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_025029) do
     t.string "phone_number"
     t.string "address"
     t.bigint "category_id"
-    t.bigint "user_type_id"
+    t.bigint "user_type_id", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_users_on_category_id"
