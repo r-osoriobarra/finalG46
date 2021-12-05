@@ -55,19 +55,6 @@ User.create!(
     )
 end
 
-#Causes
-10.times do |c|
-    Cause.create!(
-        title: Faker::DcComics.title,
-        story: Faker::Lorem.paragraph,
-        start_date: Date.today,
-        end_date: Date.today + 30,
-        reward: "user offers a reward for the supports (discount)",
-        project_id: c+1
-    )
-end
-
-
 #Points seed
 base = 1000
 prices = [
@@ -84,10 +71,23 @@ prices = [
     )
 end
 
+#Causes
+10.times do |c|
+    Cause.create!(
+        title: Faker::DcComics.title,
+        story: Faker::Lorem.paragraph,
+        start_date: Date.today,
+        end_date: Date.today + 30,
+        goal:rand(100..5000),
+        reward: "user offers a reward for the supports (discount)",
+        project_id: c+1
+    )
+end
+
 #causes_points
 10.times do |c|
     CausePoint.create!(
-        goal:rand(100..5000),
+        stock: Cause.find(c+1).goal,
         cause_id: (c+1),
         point_id: 1
     )   

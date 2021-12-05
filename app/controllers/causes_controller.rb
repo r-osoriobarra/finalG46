@@ -21,6 +21,8 @@ class CausesController < ApplicationController
         @cause =  Cause.new(cause_params)
         respond_to do |format|
             if @cause.save
+                CausePoint.create_point_stock(@cause)
+                
                 format.html { redirect_to @cause, notice: "Tu causa se ha creado exitosamente." }
             else
                 format.html { render :new, status: :unprocessable_entity }       
@@ -31,6 +33,8 @@ class CausesController < ApplicationController
     def update
         respond_to do |format|
             if @cause.update(cause_params)
+                CausePoint.update_point_stock(@cause)
+
                 format.html { redirect_to @cause, notice: "La causa se ha actualizado exitosamente." }
             else
                 format.html { render :edit, status: :unprocessable_entity }
@@ -48,7 +52,7 @@ class CausesController < ApplicationController
     private
 
     def cause_params
-        params.require(:cause).permit(:title, :story, :start_date, :end_date, :reward, :project_id)
+        params.require(:cause).permit(:title, :story, :start_date, :end_date, :goal, :reward, :project_id)
     end
 
     def set_cause

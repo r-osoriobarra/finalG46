@@ -17,6 +17,6 @@ class User < ApplicationRecord
       end
     end
     my_causes
-  endU
+  end
   
 end

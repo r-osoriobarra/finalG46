@@ -5,8 +5,7 @@ class HomeController < ApplicationController
         @causes = Cause.eager_load(
             :project, 
             :report, 
-            :cause_points, 
-            :points, 
+            :cause_points,
             :comments
         )    
     end

@@ -9,14 +9,14 @@
         <% group.each do |cause| %>
             <div class="col">
                 <div class="card">
-                    <img src="" class="card-img-top" alt="...">
+                    <img src="https://www.somosiberoamerica.org/wp-content/uploads/2021/09/NOTA2-Empresas-y-medioambiente-980x653.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= cause.title %></h5>
                         <p class="card-text "><%= cause.story %></p>
                         <div class="row">
                             <div class="col">
                                 <strong>Meta:</strong>
-                                <strong>[0--------Barra de meta -------x pts]</strong>
+                                <strong>[0 -------Barra de meta ------ <%= cause.goal %> pts]</strong>
                             </div>
                         </div>
                         <div class="row my-5">
