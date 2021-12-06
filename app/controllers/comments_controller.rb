@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+    before_action :set_cause, only: [:create]
     def new
         @comment = Comment.new
     end
@@ -7,13 +7,13 @@ class CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         @comment.user = current_user
-        @comment.cause = Cause.find(params[:cause_id])
+        @comment.cause = @cause
 
         respond_to do |format|
             if @comment.save!
-                format.html { redirect_to root_path}
+                format.html { redirect_to publication_path(@cause)}
             else
-                format.html { redirect_to publication_path(@cause.id), status: :unprocessable_entity }       
+                format.html { redirect_to publication_path(@cause), status: :unprocessable_entity }       
             end
         end
     end
@@ -22,5 +22,9 @@ class CommentsController < ApplicationController
 
     def comment_params
         params.require(:comment).permit(:comment)
+    end
+
+    def set_cause
+        @cause =  Cause.find(params[:cause_id])
     end
 end

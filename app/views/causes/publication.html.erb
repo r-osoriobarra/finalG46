@@ -30,10 +30,15 @@
 </div>
 
 <h2>Comentarios</h2>
-<%# TODO Cómo puedo crear un comentario renderizado en la vista de causes?? %>
-<%= render 'comments/form', cause: @cause, comment: @comment %> <%#TODO esto se puede hacer???%>
+
+<%= render 'comments/form', cause: @cause, comment: @comment %>
 <% @cause.comments.each do |comment| %>
-    <div class="border readonly">
-        <%= comment.comment %>
+    <div class="row">
+        <div class="col-2">
+            <%= comment.user.username %>
+        </div>
+        <div class="col-10">
+            <%= comment.comment %>
+        </div>
     </div>
 <% end %>
