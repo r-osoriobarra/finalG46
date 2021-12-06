@@ -1,0 +1,39 @@
+<div class="card">
+    <img src="https://www.somosiberoamerica.org/wp-content/uploads/2021/09/NOTA2-Empresas-y-medioambiente-980x653.png" class="card-img-bottom" alt="...">
+    <div class="card-body">
+        <h2 class="card-title font-weight-bold"><%= @cause.title %></h2>
+        <p class="card-text"><%= @cause.story %></p><%= link_to "Sitio web",@cause.project.website  %>
+        <div class="row">
+            <div class="col">
+                <strong>Meta:</strong><%= @cause.goal %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>[0 -------Barra de meta ------ <%= @cause.goal %> pts]</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Desde:</strong><%= @cause.start_date %> |
+                <strong>Hasta: </strong><%= @cause.end_date %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Recompensas: </strong><%= @cause.reward %>
+            </div>
+        </div>
+        <p class="card-text"><small class="text-muted">Última actualización: <%= @cause.updated_at %></small></p>
+        <%= link_to 'Donar',publication_path(@cause.id), class:'btn btn-success'%>
+    </div>
+</div>
+
+<h2>Comentarios</h2>
+<%# TODO Cómo puedo crear un comentario renderizado en la vista de causes?? %>
+<%= render 'comments/form', cause: @cause, comment: @comment %> <%#TODO esto se puede hacer???%>
+<% @cause.comments.each do |comment| %>
+    <div class="border readonly">
+        <%= comment.comment %>
+    </div>
+<% end %>

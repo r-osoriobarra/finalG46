@@ -7,6 +7,6 @@ class HomeController < ApplicationController
             :report, 
             :cause_points,
             :comments
-        )    
+        )
     end
 end

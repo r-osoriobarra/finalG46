@@ -11,10 +11,14 @@
                 <div class="card">
                     <img src="https://www.somosiberoamerica.org/wp-content/uploads/2021/09/NOTA2-Empresas-y-medioambiente-980x653.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title"><%= cause.title %></h5>
-                        <p class="card-text "><%= cause.story %></p>
+                        <h3 class="card-title font-weight-bold"><%= cause.title %></h3>
                         <div class="row">
                             <div class="col">
+                                <p><%=(cause.story).truncate(200) %></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
                                 <strong>Meta:</strong>
                                 <strong>[0 -------Barra de meta ------ <%= cause.goal %> pts]</strong>
                             </div>
@@ -22,14 +26,19 @@
                         <div class="row my-5">
                             <div class="col">
                                 <strong>Desde:</strong><%= cause.start_date %>
+                            </div>
+                            <div class="col">
                                 <strong>Hasta: </strong><%= cause.end_date %>
                             </div>
                             <div class="col">
-                            </div>
-                            <div class="col">
-                                <p>Recompensas: </p><%= cause.reward %>
+                                <strong>Recompensa: </strong><%= cause.reward %>
                             </div>
                         </div>
+                        <div class="row">
+                                <div class="col">
+                                    <%= link_to 'Ver más',publication_path(cause.id), class:'btn btn-primary'%>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

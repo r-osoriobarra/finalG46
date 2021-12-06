@@ -75,7 +75,16 @@ end
 10.times do |c|
     Cause.create!(
         title: Faker::DcComics.title,
-        story: Faker::Lorem.paragraph,
+        story: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nulla quisquam molestiae beatae pariatur, repellendus placeat aperiam cumque ducimus quibusdam excepturi ratione. Architecto delectus perferendis ut nesciunt placeat ratione cupiditate.
+        Unde ullam expedita vel quas? Dignissimos dolores expedita cupiditate. Eos perferendis vitae porro deserunt vel. Quaerat molestias corrupti commodi voluptatibus reprehenderit fugiat magni rem libero quia cum, laboriosam ex tempore.
+        Doloremque atque fuga, velit deleniti esse ea illum odio numquam eum, cupiditate, temporibus nisi neque perferendis itaque quod debitis libero consequuntur provident magnam? Harum hic voluptas cum dicta amet unde!
+        Corporis ea sit unde dolorem consequuntur quo magni dignissimos alias consectetur aut impedit dolore ipsa obcaecati ullam voluptatum officiis, sed fugit exercitationem perferendis? Consequatur officia adipisci eligendi nostrum hic corrupti.
+        Quos neque aperiam voluptates delectus ullam debitis ipsa non nam maiores voluptatem unde quas nesciunt fugiat vel, a harum nostrum nemo autem et ratione alias ex obcaecati beatae! Voluptatum, consectetur!
+        Odio laborum molestiae repellendus necessitatibus reiciendis praesentium sapiente laboriosam ad expedita vitae nam corporis, architecto hic, ut quasi. Numquam hic doloribus dolore cum mollitia nobis distinctio reprehenderit facilis veritatis sed.
+        Laudantium quisquam tempora ipsum fugit, autem facere minus ducimus quod corrupti voluptas suscipit vero aspernatur cumque hic culpa animi optio modi dolore, aliquam consequuntur exercitationem nesciunt numquam. Debitis, fugit saepe?
+        Aut suscipit, molestiae amet ratione autem facere mollitia quasi tenetur rem et pariatur praesentium, aperiam magni veritatis reprehenderit dignissimos repudiandae. Ab facilis asperiores odio. Facere doloribus et quaerat cum veritatis.
+        Rerum labore, quae voluptatem ad sed tempora deserunt placeat ducimus consectetur nemo vero cupiditate eum, at totam esse nisi molestiae eaque minima! Nobis soluta dolore maxime sint similique quia? Sint?
+        Ipsa mollitia, libero architecto voluptatibus expedita veritatis, officiis perspiciatis iusto doloribus animi quod ex praesentium provident quam possimus. Qui dolore recusandae illo excepturi. Ab sed sint facilis? Rem, atque aut.',
         start_date: Date.today,
         end_date: Date.today + 30,
         goal:rand(100..5000),
