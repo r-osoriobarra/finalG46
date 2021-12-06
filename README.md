@@ -29,9 +29,11 @@ Apañame.org es una plataforma que pretende conectar a personas con proyectos de
 
     ```
   5. Para acceder como un perfil de usuario
+    
     ```
     user: userAA@mail.com, donde AA, es número entre 0 y 19
     pass: 123123
+    
     ```
 ### *Herramientas*
     *ruby v2.7.3
