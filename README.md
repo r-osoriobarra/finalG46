@@ -39,3 +39,4 @@ Apañame.org es una plataforma que pretende conectar a personas con proyectos de
     *Devise gem
     *Faker gem
     *RailsAdmin gem
+    *CanCanCan gem
