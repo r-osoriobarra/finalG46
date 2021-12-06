@@ -23,18 +23,18 @@ Apañame.org es una plataforma que pretende conectar a personas con proyectos de
   2. `rails db:migrate`
   3. `rails db:seed`
   4.  Para acceder como perfil de administrador  
-    ```
-    user: admin@mail.com
-    pass: 123123
 
-    ```
+```
+user: admin@mail.com
+pass: 123123
+```
+
   5. Para acceder como un perfil de usuario
     
-    ```
-    user: userAA@mail.com, donde AA, es número entre 0 y 19
-    pass: 123123
-    
-    ```
+```
+user: userAA@mail.com, donde AA, es número entre 0 y 19
+pass: 123123
+```
 ### *Herramientas*
     *ruby v2.7.3
     *rails v5.2.6
