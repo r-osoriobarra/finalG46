@@ -21,6 +21,9 @@
             <li class="nav-item">
                 <%= link_to 'Iniciar sesión', new_user_session_path, class:'nav-link' %>
             </li>
+            <li class="nav-item">
+                <%= link_to 'Iniciar sesión con Facebook', user_facebook_omniauth_authorize_path, class:'nav-link' %>
+            </li
         <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
