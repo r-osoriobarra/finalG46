@@ -77,6 +77,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    chunky_png (1.4.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -189,6 +190,9 @@ GEM
     omniauth-oauth2 (1.7.2)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
+    omniauth-rails_csrf_protection (1.0.0)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     orm_adapter (0.5.0)
     pg (1.2.3)
     popper_js (1.16.0)
@@ -249,6 +253,10 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rqrcode (2.1.0)
+      chunky_png (~> 1.0)
+      rqrcode_core (~> 1.0)
+    rqrcode_core (1.2.0)
     ruby2_keywords (0.0.5)
     ruby_dep (1.5.0)
     rubyzip (2.3.2)
@@ -327,11 +335,14 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  omniauth
   omniauth-facebook
+  omniauth-rails_csrf_protection
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.6)
   rails_admin (~> 2.0)
+  rqrcode
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

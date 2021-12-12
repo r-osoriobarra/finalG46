@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_162806) do
+ActiveRecord::Schema.define(version: 2021_12_08_215231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2021_12_08_162806) do
     t.datetime "updated_at", null: false
     t.index ["cause_id"], name: "index_comments_on_cause_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.integer "amount"
+    t.string "title"
+    t.string "message"
+    t.integer "status"
+    t.string "code"
+    t.string "payment_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_items", force: :cascade do |t|

@@ -1,0 +1,20 @@
+<h1>Cause#show</h1>
+<div id="donation">
+    <strong>Titulo: </strong>
+    <p><%= @donation.title %></p>
+    
+    <strong>Cantidad: </strong>
+    <p><%= @donation.amount %></p>
+
+    <strong>Mensaje: </strong>
+    <p><%= @donation.message %></p>
+
+    <strong>Status: </strong>
+    <p><%= @donation.status %></p>
+
+    <strong>Code: </strong>
+    <p><%= @donation.code %></p>
+</div>
+
+<%= raw @svg %>
+<%= link_to 'Ya realicé el pago', check_donation_path(@donation.id) %>
