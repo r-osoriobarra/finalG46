@@ -5,9 +5,9 @@ class Cause < ApplicationRecord
   has_many :comments  
 
   def unique_founders
-    self.donations.pluck(:user_id).count
+    self.donations.distinct.pluck(:user_id).count
   end
-
+  
   def total_donations_clp
     self.donations.pluck(:amount).sum
   end
@@ -17,7 +17,7 @@ class Cause < ApplicationRecord
   end
 
   def percentage_of_goal_achieved
-    (self.donation_points_amount/self.goal).to_f
+    ((self.donation_points_amount.to_f/self.goal.to_f)*100).round(2)
   end
 
   #TODO: agregar un metodo que pueda finalizar la cause cuando se acabe la fecha o cuando se cumpla la meta.
