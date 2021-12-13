@@ -93,15 +93,6 @@ end
     )
 end
 
-#causes_points
-10.times do |c|
-    CausePoint.create!(
-        stock: Cause.find(c+1).goal,
-        cause_id: (c+1),
-        point_id: 1
-    )   
-end
-
 #Comments
 30.times do |comment|
     Comment.create!(
@@ -120,15 +111,3 @@ end
         cause_id: (r+1)
     )
 end
-#Order
-5.times do |o|
-    Order.create(
-        user_id: rand(1..21),
-        total: rand(1000..2000),
-        state: "completed",
-        created_at: Faker::Date.between(from: 7.days.ago, to: Date.today)
-    )
-end
-
-#PaymentMethod seed
-PaymentMethod.create!(name: "Paypal Express Checkout", code: "PEC")

@@ -13,6 +13,26 @@
                 <strong>[0 -------Barra de meta ------ <%= @cause.goal %> pts]</strong>
             </div>
         </div>
+        <div class="row data">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <th>Nº Donaciones</th>
+                        <th>Nº Puntos recibidos</th>
+                        <th>Equivalencia en $CLP</th>
+                        <th>% de meta cumplida</th>
+                        <th>Nº Apañadores</th>
+                    </thead>
+                    <tbody>
+                        <td><%= @cause.donations.count %></td>
+                        <td><%= @cause.donation_points_amount %></td>
+                        <td><%= @cause.total_donations_clp%></td>
+                        <td><%= "#{@cause.percentage_of_goal_achieved}%" %></td>
+                        <td><%= @cause.unique_founders %></td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <strong>Desde:</strong><%= @cause.start_date %> |
@@ -25,7 +45,7 @@
             </div>
         </div>
         <p class="card-text"><small class="text-muted">Última actualización: <%= @cause.updated_at %></small></p>
-        <%= link_to 'Donar',publication_path(@cause.id), class:'btn btn-success'%>
+        <%= link_to 'Donar', new_cause_donation_path(@cause.id), class:'btn btn-success'%>
     </div>
 </div>
 

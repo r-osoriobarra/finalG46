@@ -1,13 +1,13 @@
 <h1>Cause#show</h1>
 <div id="donation">
-    <strong>Titulo: </strong>
-    <p><%= @donation.title %></p>
-    
+    <strong>Causa: </strong>
+    <p><%= @donation.cause.title %></p>
+
+    <strong>User: </strong>
+    <p><%= @donation.user.email %></p>
+
     <strong>Cantidad: </strong>
     <p><%= @donation.amount %></p>
-
-    <strong>Mensaje: </strong>
-    <p><%= @donation.message %></p>
 
     <strong>Status: </strong>
     <p><%= @donation.status %></p>
@@ -15,6 +15,6 @@
     <strong>Code: </strong>
     <p><%= @donation.code %></p>
 </div>
-
+<p>//sin funcionalidad del webhook en local</p>
 <%= raw @svg %>
-<%= link_to 'Ya realicé el pago', check_donation_path(@donation.id) %>
+<%= link_to "back", publication_path(@donation.cause)  %>

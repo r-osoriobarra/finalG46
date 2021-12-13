@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'cause/publication/:id', to:'causes#publication', as: 'publication'
   resources :causes do
     resources :comments
+    resources :donations
   end 
 
   #rutas para inicio de sesión con facebook
@@ -23,9 +24,8 @@ Rails.application.routes.draw do
   end
 
   #rutas para donaciones
-  resources :donations
   post '/confirmation', to: 'donations#webhook'
-  #http://www.localhost:3000/confirmation -> configurarlo en los webhook de sandobox y producción
-  get '/mach/:id', to:'donations#check_donation', as: 'check_donation'#-> para salir de la vista del qr
+  #TODO: https://www.localhost:3000/confirmation -> configurarlo en los webhook de sandobox y producción
+  get '/mach/:id', to:'donations#check_donation', as: 'check_donation'#* -> para salir de la vista del qr
 end
   

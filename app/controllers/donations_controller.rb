@@ -1,11 +1,8 @@
 #TODO: PROBAR LA APP CON DONATIONS EN PRODUCCION- SUBIR A HEROKU, GENERAR LLAVES Y AGREGAR RUTAS AL WEBHOOK EN MACH
-#TODO: RELACIONAR DONATIONS CON CAUSES Y POINTS
 #TODO: CREAR UN METODO QUE VAYA DESCONTANDO LOS PUNTOS DE CADA CAUSA SI ES QUE SE REALIZA CON EXITO UNA DONACION
-#TODO: AGREGAR VARIABLES DE ENTORNO A LA APP EN HEROKU PARA VER VALIDACION DE FACEBOOK
-#TODO: AGREGAR MAILER A LA APPLICACION
 
 class DonationsController < ApplicationController
-    #TODO: 2 se agregan los require para poder setear la información que irá a MACH
+    # * Paso 2: se agregan los require para poder setear la información que irá a MACH
     require 'json'
     require 'net/http'
     require 'uri'
@@ -13,6 +10,7 @@ class DonationsController < ApplicationController
     skip_before_action :authenticate_user!, only: [:webhook]
 
     before_action :set_donation, only: [:show, :edit, :update, :destroy, :check_donation]
+    before_action :set_cause, only: [:new, :create, :update]
     
     def index
         @donations = Donation.all   
@@ -24,7 +22,7 @@ class DonationsController < ApplicationController
         @svg = @qrcode.as_svg(
             offset: 0,
             color: '000',
-            shape_rendering: 'crispEdges',
+            shape_rendering: 'crispEdges',  
             module_size: 6
         )
     end
@@ -33,13 +31,18 @@ class DonationsController < ApplicationController
         @donation = Donation.new
     end
 
-    def edit
-    end
-
-    def create
+    def create        
         @donation =  Donation.new(donation_params)
         @donation.status = "pending"
-        #TODO: 1. se configura los datos que se enviarán a MACH
+        @donation.cause = @cause
+        @donation.user = current_user
+        @donation.title = @cause.title
+        @donation.message = "Donando por #{current_user.email}"
+        @donation.amount = @donation.amount * 1000
+        #TODO: crear un atributo que diferencia total en CLP y total de puntos
+        #TODO: dar la opción de agregar diferentes puntos a la donación
+
+        #* Paso 1. se configura los datos que se enviarán a MACH
         payload = JSON.dump({ 
             payment: {
                 amount: @donation.amount,
@@ -47,16 +50,16 @@ class DonationsController < ApplicationController
                 title: @donation.title,
             }
         })
-        #TODO: 3. se agrega la ruta a la que queremos llegar para hacerle un fetch
-        #cambiar la ruta para cuando se habilite la cuenta en match (quitar el "-sandbox")
+        #* Paso 3. se agrega la ruta a la que queremos llegar para hacerle un fetch
+        #TODO: cambiar la ruta para cuando se habilite la cuenta en mach (quitar el "-sandbox")
         url = URI("https://biz-sandbox.soymach.com/payments")
 
-        #TODO: 4. biblioteca http
+        #* Paso 4. biblioteca http
         http = Net::HTTP.new(url.host, url.port)
         #agregar que sea https
         http.use_ssl = true
 
-        #TODO: 6. crear el request
+        #* Paso 5. crear el request
         #Seteo de headers
         request = Net::HTTP::Post.new(url)
         request["Content-Type"] = "application/json"
@@ -74,32 +77,15 @@ class DonationsController < ApplicationController
         #responder en formato html si se guarda la donación
         respond_to do |format|
             if @donation.save!
-                format.html { redirect_to @donation, notice: "La donación se ha creado exitosamente."}
+                format.html { redirect_to cause_donation_path(@cause, @donation), notice: "La donación se ha creado exitosamente."}
             end
         end
     end
-
-    def update
-        respond_to do |format|
-            if @donation.update(donation_params)                
-                format.html { redirect_to @donation, notice: "La donación se ha actualizado exitosamente." }
-            else
-                format.html { render :edit, status: :unprocessable_entity }
-            end
-        end
-    end
-
-    def destroy
-        @donation.destroy
-        respond_to do |format|
-            format.html { redirect_to root_path, notice: "La donación se ha borrado." }
-        end
-    end 
     
-    #TODO: 7. se configura el webhook en mach
-    #WEBHOOK NO FUNCIONA EN LOCAL - SOLO EN PRODUCCION
-    #AGREGAR LA NUEVA RUTA AL WEBHOOK CUANDO SE SUBA A UN DOMINIO/CONFIRMATION
-    #CREAR LAS LLAVES PARA MARCH DE PRODUCCIÓN Y AGREGARLAS AL .ENV
+    #* Paso 6. se configura el webhook en mach
+    #! WEBHOOK NO FUNCIONA EN LOCAL - SOLO EN PRODUCCION
+    #TODO: AGREGAR LA NUEVA RUTA AL WEBHOOK CUANDO SE SUBA A UN DOMINIO/CONFIRMATION
+    #TODO: CREAR LAS LLAVES PARA MARCH DE PRODUCCIÓN Y AGREGARLAS AL .ENV
 
     def webhook
         donation = Donation.find_by(code: params["event_resource_id"])
@@ -121,13 +107,14 @@ class DonationsController < ApplicationController
         end
     end
 
-    #TODO: 8. se realiza un request de tipo get para saber el estado de la transacción con mach
+    #* Paso 8. se realiza un request de tipo get para saber el estado de la transacción con mach
     def check_donation
-        #cambiar la url a la de producción
+        #TODO: cambiar la url a la de producción
         url = URI("https://biz-sandbox.soymach.com/payments/#{@donation.code}") 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
-        request["Authorization"] = ENV["MACH_KEY_SANDBOX"] #CAMBIAR LLAVE A PRODUCCIÓN CUANDO SE SUBA EL PROYECTO
+        #TODO: CAMBIAR LLAVE A PRODUCCIÓN CUANDO SE SUBA EL PROYECTO
+        request["Authorization"] = ENV["MACH_KEY_SANDBOX"] 
 
         response = http.request(request)
         response_body = JSON.parse(response.body)
@@ -146,10 +133,14 @@ class DonationsController < ApplicationController
     private
 
     def donation_params
-        params.require(:donation).permit(:amount, :title, :status, :message)
+        params.require(:donation).permit(:amount, :title, :status, :message, :user_id, :cause_id)
     end
 
     def set_donation
         @donation = Donation.find(params[:id])
+    end
+
+    def set_cause
+        @cause =  Cause.find(params[:cause_id])
     end
 end

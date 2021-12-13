@@ -1,6 +1,5 @@
 class Point < ApplicationRecord
-    has_many :order_items
-    has_many :cause_points
-
+    #TODO: crear una tabla intermedia para que desde donaciones se puede comprar diferentes tipos de puntos
     enum name: ["Punto", "Super Punto", "Mega Punto", "Apaña Punto"]
 end
+    

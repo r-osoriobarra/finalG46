@@ -51,8 +51,8 @@ class CausesController < ApplicationController
         respond_to do |format|
             format.html { redirect_to root_path, notice: "La causa se ha borrado." }
         end
-    end    
-
+    end 
+    
     private
 
     def cause_params

@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook]
   
   belongs_to :user_type
-  has_many :orders, dependent: :destroy
+  has_many :donations
   has_many :projects, dependent: :destroy
   has_many :comments, dependent: :destroy
 
