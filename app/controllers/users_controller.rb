@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   
   def show
     @my_causes = User.my_causes(current_user)
+    @donations_per_hour = current_user.donations.group_by_hour(:created_at).count
+    @donations_per_cause = current_user.donations.group(:cause_id).count
   end
 
   def edit

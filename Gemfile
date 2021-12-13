@@ -75,4 +75,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
 gem 'rails-erd'
+#gemas para graficos
+gem "chartkick", "~> 4.0"
+gem "groupdate", "~> 5.2"
 
