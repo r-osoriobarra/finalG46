@@ -1,0 +1,21 @@
+<%= form_with(model: [@cause, donation], remote: true) do |f| %>
+    <% if donation.errors.any? %>
+        <div id = 'error_explanation'>
+            <h2>La donación no se pudo crear por las siguientes razones:</h2>
+            <ul>
+                <% donation.errors.full_messages.each do |msg|%>
+                    <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="form-group">
+        <%= f.label :amount, "Cantidad de ApañaPuntos: "%>
+        <%= f.number_field :amount, class:'form-control', min: 0, placeholder: "Con cada punto, aportas $1000 CLP a esta causa" %>
+    </div>
+
+    <div class = 'actions'>
+        <%= f.submit %>
+    </div>
+<% end %>

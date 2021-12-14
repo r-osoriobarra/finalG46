@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_221807) do
+ActiveRecord::Schema.define(version: 2021_12_12_223759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,16 +19,6 @@ ActiveRecord::Schema.define(version: 2021_12_05_221807) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "name"
-  end
-
-  create_table "cause_points", force: :cascade do |t|
-    t.integer "stock"
-    t.bigint "cause_id"
-    t.bigint "point_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cause_id"], name: "index_cause_points_on_cause_id"
-    t.index ["point_id"], name: "index_cause_points_on_point_id"
   end
 
   create_table "causes", force: :cascade do |t|
@@ -54,44 +44,19 @@ ActiveRecord::Schema.define(version: 2021_12_05_221807) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "order_items", force: :cascade do |t|
-    t.integer "quantity"
-    t.float "price"
-    t.bigint "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "cause_point_id"
-    t.index ["cause_point_id"], name: "index_order_items_on_cause_point_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.string "number"
-    t.float "total"
-    t.string "state"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
-  create_table "payment_methods", force: :cascade do |t|
-    t.string "name"
+  create_table "donations", force: :cascade do |t|
+    t.integer "amount"
+    t.string "title"
+    t.string "message"
+    t.integer "status"
     t.string "code"
+    t.string "payment_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.string "state"
-    t.float "total"
-    t.string "token"
-    t.bigint "order_id"
-    t.bigint "payment_method_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_payments_on_order_id"
-    t.index ["payment_method_id"], name: "index_payments_on_payment_method_id"
+    t.bigint "user_id"
+    t.bigint "cause_id"
+    t.index ["cause_id"], name: "index_donations_on_cause_id"
+    t.index ["user_id"], name: "index_donations_on_user_id"
   end
 
   create_table "points", force: :cascade do |t|
@@ -145,22 +110,19 @@ ActiveRecord::Schema.define(version: 2021_12_05_221807) do
     t.bigint "user_type_id", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "provider"
+    t.string "uid"
     t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
-  add_foreign_key "cause_points", "causes"
-  add_foreign_key "cause_points", "points"
   add_foreign_key "causes", "projects"
   add_foreign_key "comments", "causes"
   add_foreign_key "comments", "users"
-  add_foreign_key "order_items", "cause_points"
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "orders", "users"
-  add_foreign_key "payments", "orders"
-  add_foreign_key "payments", "payment_methods"
+  add_foreign_key "donations", "causes"
+  add_foreign_key "donations", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "reports", "causes"
 end

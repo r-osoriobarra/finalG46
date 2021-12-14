@@ -1,7 +1,13 @@
-
+  
 <h1>Bienvenido a Apañame.org</h1>
 <% if user_signed_in? %>
     <%= render 'founder' %>
 <% else %>
+    <div id="facebook">
+        <% User.omniauth_providers.each do |provider| %>
+            <%= link_to "Iniciar sesión con #{OmniAuth::Utils.camelize(provider)}", 
+            omniauth_authorize_path(@user, provider), method: :post, class: 'btn btn-primary' %>
+        <% end %>
+    </div> 
     <%= render 'visitor' %>
 <% end %>

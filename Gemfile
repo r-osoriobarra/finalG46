@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -67,3 +68,14 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.6.1'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+#gema para codigo qr
+gem 'rqrcode'
+#gemas para autenticación con facebook
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "omniauth-rails_csrf_protection"
+gem 'rails-erd'
+#gemas para graficos
+gem "chartkick", "~> 4.0"
+gem "groupdate", "~> 5.2"
+

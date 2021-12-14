@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   
   def show
     @my_causes = User.my_causes(current_user)
+    @my_approved_donations = current_user.donations.where(status: "approved")
+    @donations_per_hour = @my_approved_donations.group_by_hour(:created_at).count
+    @donations_per_cause = @my_approved_donations.group(:cause_id).count
   end
 
   def edit
