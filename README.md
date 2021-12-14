@@ -1,5 +1,3 @@
-# README
-
 # Prueba final G46 Desafío Latam
 
 Entrega hito 2 prueba Desafío Latam
@@ -13,11 +11,14 @@ Apañame.org es una plataforma que pretende conectar a personas con proyectos de
 ![Modelo físico](https://trello.com/1/cards/61a1e506085b4d296d1e51f7/attachments/61ae95c3b912ae528163bc14/previews/61ae95c4b912ae528163bc25/download/apa%C3%B1ame.cl.jpg)
 
 #### *Versiones*
-- Version 2.0 
+- Version 3.0 
   - Se habilita autenticación con devise
   - Se habilita panel de administrador
   - Se habilita publicación de causas y relación entre usuario-emprendimiento-causa
-  - Se habilita agregar comentarios en las causas por parte de los usuarios 
+  - Se habilita agregar comentarios en las causas por parte de los usuarios
+  - Se habilita inicio de sesión con facebook
+  - Se habilitan donaciones mediante MACH (en sandbox, sin funcionalidad del webhook)
+  - Se habilitan charts en el menú en la vista show de user
 ### **Instalación**
   1. `git clone https://github.com/r-osoriobarra/finalG46`
   2. `rails db:migrate`
@@ -42,3 +43,6 @@ Apañame.org es una plataforma que pretende conectar a personas con proyectos de
     *Faker gem
     *RailsAdmin gem
     *CanCanCan gem
+    *Omniauth gem
+    *rqrcode gem
+    *chartkick gem
