@@ -81,7 +81,7 @@ class DonationsController < ApplicationController
             end
         end
     end
-    
+
     #* Paso 6. se configura el webhook en mach
     #! WEBHOOK NO FUNCIONA EN LOCAL - SOLO EN PRODUCCION
     #TODO: AGREGAR LA NUEVA RUTA AL WEBHOOK CUANDO SE SUBA A UN DOMINIO/CONFIRMATION

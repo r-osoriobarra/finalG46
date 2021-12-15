@@ -25,8 +25,8 @@ class CausesController < ApplicationController
         @cause =  Cause.new(cause_params)
         respond_to do |format|
             if @cause.save
-
-                CausePoint.create_point_stock(@cause)
+                CauseMailer.with(cause: @cause).new_cause_email.deliver_later
+                #CausePoint.create_point_stock(@cause)
                 format.html { redirect_to @cause, notice: "Tu causa se ha creado exitosamente." }
             else
                 format.html { render :new, status: :unprocessable_entity }       
@@ -38,7 +38,7 @@ class CausesController < ApplicationController
         respond_to do |format|
             if @cause.update(cause_params)
                 
-                CausePoint.update_point_stock(@cause)
+                #CausePoint.update_point_stock(@cause)
                 format.html { redirect_to @cause, notice: "La causa se ha actualizado exitosamente." }
             else
                 format.html { render :edit, status: :unprocessable_entity }
