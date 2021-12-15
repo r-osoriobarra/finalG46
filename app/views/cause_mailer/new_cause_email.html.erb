@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    </head>
+    <body>
+        <p>Se creó la causa <%= @cause.title %>!</p>
+        <p>
+        Detalles<br>
+        --------------------------
+        </p>
+        <p>Título: <%= @cause.title %></p>
+        <p>Fecha de inicio: <%= @cause.start_date %></p>
+        <p>Fecha de término: <%= @cause.end_date %></p>
+        <p>Recomenpesa: <%= @cause.reward %></p>
+        <p>Creador: <%= @cause.project.user.email %></p>
+        <p>
+        Mensaje:<br>
+        ----------
+        </p>
+        <p>Vale por aportar. Chao</p>
+    </body>
+</html>
