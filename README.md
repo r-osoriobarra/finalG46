@@ -19,6 +19,7 @@ Apañame.org es una plataforma que pretende conectar a personas con proyectos de
   - Se habilita inicio de sesión con facebook
   - Se habilitan donaciones mediante MACH (en sandbox, sin funcionalidad del webhook)
   - Se habilitan charts en el menú en la vista show de user
+  - Se habilita mailing al crear una causa.
 ### **Instalación**
   1. `git clone https://github.com/r-osoriobarra/finalG46`
   2. `rails db:migrate`
