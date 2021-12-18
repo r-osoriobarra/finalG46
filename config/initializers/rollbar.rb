@@ -9,10 +9,6 @@ Rollbar.configure do |config|
     config.enabled = false
   end
   
-  # if Rails.env.production?
-  #   config.enabled = true
-  # end
-
   # By default, Rollbar will try to call the `current_user` controller method
   # to fetch the logged-in user object, and then call that object's `id`
   # method to fetch this property. To customize:
