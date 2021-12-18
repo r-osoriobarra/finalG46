@@ -8,6 +8,10 @@ Rollbar.configure do |config|
   if Rails.env.test?
     config.enabled = false
   end
+  
+  if Rails.env.production?
+    config.enabled = true
+  end
 
   # By default, Rollbar will try to call the `current_user` controller method
   # to fetch the logged-in user object, and then call that object's `id`
@@ -56,7 +60,7 @@ Rollbar.configure do |config|
   # are optional.
   #
   # config.proxy = {
-  #   host: 'http://some.proxy.server',
+  #   host: 'https://git.heroku.com/apaname-org.git',
   #   port: 80,
   #   user: 'username_if_auth_required',
   #   password: 'password_if_auth_required'
