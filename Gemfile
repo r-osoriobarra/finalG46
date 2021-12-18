@@ -78,4 +78,6 @@ gem 'rails-erd'
 #gemas para graficos
 gem "chartkick", "~> 4.0"
 gem "groupdate", "~> 5.2"
+#rollbar
+gem 'rollbar'
 

@@ -2,14 +2,15 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook]
+  :recoverable, :rememberable, :validatable,
+  :omniauthable, omniauth_providers: %i[facebook]
   
   belongs_to :user_type
   has_many :donations
   has_many :projects, dependent: :destroy
   has_many :comments, dependent: :destroy
-
+  after_validation :report_validation_errors_to_rollbar
+  
   def self.my_causes(user)
     my_causes = []
     user.projects.each do |project|

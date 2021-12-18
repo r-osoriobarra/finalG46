@@ -3,6 +3,7 @@ class Cause < ApplicationRecord
   has_one :report
   has_many :donations
   has_many :comments  
+  after_validation :report_validation_errors_to_rollbar
   
   def unique_founders
     self.approved_donations.distinct.pluck(:user_id).count

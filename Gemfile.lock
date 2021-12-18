@@ -262,6 +262,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rollbar (3.3.0)
     rqrcode (2.1.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
@@ -356,6 +357,7 @@ DEPENDENCIES
   rails (~> 5.2.6)
   rails-erd
   rails_admin (~> 2.0)
+  rollbar
   rqrcode
   sass-rails (~> 5.0)
   selenium-webdriver
