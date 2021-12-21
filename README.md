@@ -6,7 +6,7 @@ Entrega hito 4 prueba Desafío Latam
 Historias de usuario y flujo del proyecto, se puede ver en este link: [Trello](https://trello.com/b/894j20uO/apa%C3%B1ameorg)
 
 ### **Demo**
-Puedes ver una demo de proyecto en `https://apaname-org.herokuapp.com/`
+Puedes ver una demo de proyecto en [https://apaname-org.herokuapp.com/](https://apaname-org.herokuapp.com/)
 
 ### **Trello board**
 ### **Acerca de este proyecto**
@@ -32,14 +32,14 @@ Apañame.org es una plataforma que pretende conectar a personas con proyectos de
   3. Para crear las tablas en la base, ejecuta en la terminal el comando `rails db:migrate`
   4. Ejecuta el seed con `rails db:seed`
   5. Finalmente ejecuta `rails server` en terminal y accede en tu navegador a la dirección `localhost:3000`
-  6. Para acceder como perfil de administrador
+  6. Para acceder como perfil de administrador, utiliza las siguientes credenciales:
 
 ```
 user: admin@mail.com
 pass: 123123
 ```
-  7. Puede acceder al panel de administrador, logueandote con las credenciales de admin y entregando la dirección `localhost:3000/admin`
-  5. Para realizar pruebas con un perfil de usuario del seed, acceder con:
+  7. Puede acceder al panel de administrador, ingresa con las credenciales de admin, entregando la dirección: `localhost:3000/admin`
+  8. Para realizar pruebas con perfil de usuario:
     
 ```
 user: userAA@mail.com, donde AA, es número entre 0 y 19
