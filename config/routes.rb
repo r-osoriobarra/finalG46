@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   #rutas para donaciones
   post '/confirmation', to: 'donations#webhook'
   #TODO: https://www.localhost:3000/confirmation -> configurarlo en los webhook de sandobox y producción
-  get '/mach/:id', to:'donations#check_donation', as: 'check_donation'#* -> para salir de la vista del qr
+  get '/mach/:id', to:'donations#check_donation', as: 'check_donation'#* -> para salir de la vista del qr (la idea es no utilizar esta ruta. Que se actualice solo el modal cuando se realice el pago)
 end
   

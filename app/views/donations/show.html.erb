@@ -15,6 +15,6 @@
     <strong>Code: </strong>
     <p><%= @donation.code %></p>
 </div>
-<p>//sin funcionalidad del webhook en local</p>
+
 <%= raw @svg %>
-<%= link_to "back", publication_path(@donation.cause)  %>
+<%= link_to "Paid!", check_donation_path(@donation.id) %>

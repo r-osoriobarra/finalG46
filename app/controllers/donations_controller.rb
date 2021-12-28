@@ -38,7 +38,7 @@ class DonationsController < ApplicationController
         @donation.user = current_user
         @donation.title = @cause.title
         @donation.message = "Donando por #{current_user.email}"
-        @donation.amount = @donation.amount * 1000
+        @donation.amount = @donation.amount * 1
         #TODO: crear un atributo que diferencia total en CLP y total de puntos
         #TODO: dar la opción de agregar diferentes puntos a la donación
 
@@ -50,9 +50,9 @@ class DonationsController < ApplicationController
                 title: @donation.title,
             }
         })
+
         #* Paso 3. se agrega la ruta a la que queremos llegar para hacerle un fetch
-        #TODO: cambiar la ruta para cuando se habilite la cuenta en mach (quitar el "-sandbox")
-        url = URI("https://biz-sandbox.soymach.com/payments")
+        url = URI("https://biz.soymach.com/payments")
 
         #* Paso 4. biblioteca http
         http = Net::HTTP.new(url.host, url.port)
@@ -64,7 +64,7 @@ class DonationsController < ApplicationController
         request = Net::HTTP::Post.new(url)
         request["Content-Type"] = "application/json"
         #CUANDO SE PASE A PRODUCCIÓN AGREGAR LA VARIABLE DE ENTORNO DE PRODUCCION. VER .ENV
-        request["Authorization"] = ENV['MACH_KEY_SANDBOX']
+        request["Authorization"] = ENV['MACH_KEY_PRODUCTION']
         #Seteo de body
         request.body = payload
         response = http.request(request)
@@ -109,23 +109,23 @@ class DonationsController < ApplicationController
 
     #* Paso 8. se realiza un request de tipo get para saber el estado de la transacción con mach
     def check_donation
-        #TODO: cambiar la url a la de producción
-        url = URI("https://biz-sandbox.soymach.com/payments/#{@donation.code}") 
+        url = URI("https://biz.soymach.com/payments/#{@donation.code}") 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
-        #TODO: CAMBIAR LLAVE A PRODUCCIÓN CUANDO SE SUBA EL PROYECTO
-        request["Authorization"] = ENV["MACH_KEY_SANDBOX"] 
+        
+        request = Net::HTTP::Get.new(url)
+        request["Authorization"] = ENV["MACH_KEY_PRODUCTION"] 
 
         response = http.request(request)
         response_body = JSON.parse(response.body)
 
         respond_to do |format|
             if response_body["status"] == "CONFIRMED" || response_body["status"] == "COMPLETED"
-                format.html { redirect_to root_path, notice: "Pago realizado."}
+                format.html { redirect_to root_path, notice: "Pago realizado. #{@donation.status}"}
             elsif response_body["status"] == "PENDING"
-                format.html { redirect_to @donation, notice: "Pago pendiente."}
+                format.html { redirect_to @donation, notice: "Pago pendiente. #{@donation.status}"}
             else
-                format.html { redirect_to @donation, notice: "Pago no realizado"}
+                format.html { redirect_to @donation, notice: "Pago no realizado. #{@donation.status}"}
             end
         end
     end
