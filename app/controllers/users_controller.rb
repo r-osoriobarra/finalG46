@@ -21,6 +21,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def entrepenaur
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :surname, :username, :phone_number, :address)

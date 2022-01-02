@@ -1,50 +1,54 @@
-<div id="add" class="mb-4">
-    <%= link_to 'Agregar un proyecto', new_project_path, class:'btn btn-primary'  %>
-    <%= link_to 'Agregar una causa', new_cause_path, class:'btn btn-success'  %>
-</div>
-
-
-<% @causes.in_groups_of(2, false).each do |group| %>
-    <div class="row">
-        <% group.each do |cause| %>
-            <div class="col">
-                <div class="card">
-                    <img src="https://www.somosiberoamerica.org/wp-content/uploads/2021/09/NOTA2-Empresas-y-medioambiente-980x653.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h3 class="card-title font-weight-bold"><%= cause.title %></h3>
-                        <div class="row">
-                            <div class="col">
-                                <p><%=(cause.story).truncate(200) %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apañame.org</title>
+</head>
+<body>
+    <% @causes.in_groups_of(3, false).each do |group| %>
+        <div class="row">
+            <% group.each do |cause| %>
+                <div class="col">
+                    <div class="card mb-4">
+                        <div class="main_image">
+                            <img id="cause_img" src="https://agenciaajn.com/new/wp-content/uploads/2018/01/panader%C3%ADa.jpg" class="card-img-top" alt="...">
+                            <div class="dails-left">Quedan <%=(Date.today - cause.end_date).to_i %> días</div>
+                            <div class="cause_header">
+                                <div class="project"><%= cause.project.name %></div>
+                                <div class="title"><%= cause.title %></div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-center">
-                                <strong>Meta:</strong>
-                                <strong>[0 -------Barra de meta ------ <%= cause.goal %> pts]</strong>
-                            </div>
-                        </div>
-                        <div class="row my-5">
-                            <div class="col">
-                                <strong>Desde:</strong><%= cause.start_date %>
-                            </div>
-                            <div class="col">
-                                <strong>Hasta: </strong><%= cause.end_date %>
-                            </div>
-                            <div class="col">
-                                <strong>Recompensa: </strong><%= cause.reward %>
-                            </div>
-                        </div>
-                        <div class="row">
-                                <div class="col">
-                                    <%= link_to 'Ver más',publication_path(cause.id), class:'btn btn-primary'%>
+                            <%# barra de progreso %>
+                            <div class="counter"><%=cause.donation_points_amount%> pts raised </div>
+                            <div class="goal"><%=cause.goal%> pts goal</div>
+                            <div class="bar">
+                                <div class="progress-outer">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:<%=cause.percentage_of_goal_achieved%>%"></div>
+                                    </div>
                                 </div>
                             </div>
+                            <div id="more">
+                                <%= link_to 'Ver más',publication_path(cause.id), class:"btn goToCause" %>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% end %>
-    </div>
-<% end %>
+            <% end %>
+        </div>
+    <% end %>
+    <script src="founder_index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
 
 
 

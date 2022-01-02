@@ -9,10 +9,15 @@
             </ul>
         </div>
     <% end %>
-    
+
     <div class="form-group">
-        <%= f.label :amount, "Cantidad de ApañaPuntos: "%>
-        <%= f.number_field :amount, class:'form-control', min: 0, placeholder: "Con cada punto, aportas $1 CLP a esta causa" %>
+        <%= f.label :point_id, "Elige el tipo de punto: "%>
+        <%= f.collection_select(:point_id, @points, :id, :name) %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :quantity, "Cantidad de ApañaPuntos: "%>
+        <%= f.number_field :quantity, class:'form-control', min: 0 %>
     </div>
 
     <div class = 'actions'>

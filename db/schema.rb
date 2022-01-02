@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_12_223759) do
+ActiveRecord::Schema.define(version: 2021_12_29_232941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(version: 2021_12_12_223759) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "cause_id"
+    t.bigint "point_id"
+    t.integer "quantity"
     t.index ["cause_id"], name: "index_donations_on_cause_id"
+    t.index ["point_id"], name: "index_donations_on_point_id"
     t.index ["user_id"], name: "index_donations_on_user_id"
   end
 
@@ -122,6 +125,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_223759) do
   add_foreign_key "comments", "causes"
   add_foreign_key "comments", "users"
   add_foreign_key "donations", "causes"
+  add_foreign_key "donations", "points"
   add_foreign_key "donations", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "reports", "causes"

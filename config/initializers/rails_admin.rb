@@ -40,5 +40,5 @@ RailsAdmin.config do |config|
   end
 
   config.main_app_name = ["Apañame.org"]
-  config.included_models = ["User", "Cause", "Project"]
+  config.included_models = ["User", "Cause", "Project", "Point"]
 end

@@ -29,6 +29,7 @@ class DonationsController < ApplicationController
 
     def new
         @donation = Donation.new
+        @points = Point.all
     end
 
     def create        
@@ -38,9 +39,8 @@ class DonationsController < ApplicationController
         @donation.user = current_user
         @donation.title = @cause.title
         @donation.message = "Donando por #{current_user.email}"
-        @donation.amount = @donation.amount * 1
-        #TODO: crear un atributo que diferencia total en CLP y total de puntos
-        #TODO: dar la opción de agregar diferentes puntos a la donación
+        #calculo de dinero a donar
+        @donation.amount = Point.find(params[:donation][:point_id]).price * @donation.quantity
 
         #* Paso 1. se configura los datos que se enviarán a MACH
         payload = JSON.dump({ 
@@ -133,7 +133,7 @@ class DonationsController < ApplicationController
     private
 
     def donation_params
-        params.require(:donation).permit(:amount, :title, :status, :message, :user_id, :cause_id)
+        params.require(:donation).permit(:quantity, :amount, :title, :status, :message, :user_id, :cause_id, :point_id)
     end
 
     def set_donation

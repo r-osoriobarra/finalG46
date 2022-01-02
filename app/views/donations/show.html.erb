@@ -6,12 +6,15 @@
     <strong>User: </strong>
     <p><%= @donation.user.email %></p>
 
-    <strong>Cantidad: </strong>
-    <p><%= @donation.amount %></p>
-
     <strong>Status: </strong>
     <p><%= @donation.status %></p>
 
+    <strong>Cantidad de <%= Point.find(@donation.point_id).name %>: </strong>
+    <p><%= @donation.quantity %></p>    
+
+    <strong>Total a pagar: </strong>
+    <p><%= @donation.amount %></p>
+    
     <strong>Code: </strong>
     <p><%= @donation.code %></p>
 </div>

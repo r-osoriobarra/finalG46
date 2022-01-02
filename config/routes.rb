@@ -3,20 +3,24 @@ Rails.application.routes.draw do
   
   root 'home#index'
   
+  #users
   get 'user/profile/:id', to:'users#show', as: 'profile'
   resources :users, only: [:edit, :update]
 
-  #rutas para proyectos
+  #introduction for entrepenaures
+  get 'user/entrepenaur', to: 'users#entrepenaur', as: 'entrepenaur'
+
+  #project
   resources :projects
 
-  #rutas para causas
+  #causes
   get 'cause/publication/:id', to:'causes#publication', as: 'publication'
   resources :causes do
     resources :comments
     resources :donations
   end 
 
-  #rutas para inicio de sesión con facebook
+  #sign in with facebook
   Rails.application.routes.draw do
     devise_for :users, controllers: {
       omniauth_callbacks: 'users/omniauth_callbacks'

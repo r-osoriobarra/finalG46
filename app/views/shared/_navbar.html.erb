@@ -14,6 +14,11 @@
             <li class="nav-item">
                 <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class:'nav-link' %>
             </li>
+            <% if action_name != "entrepenaur" %>
+                <li>
+                    <%= link_to "Crea una causa", entrepenaur_path, class:"btn btn-success" %>
+                </li>
+            <% end %>
         <% else %>
             <li class="nav-item">
                 <%= link_to 'Registrarse', new_user_registration_path, class:'nav-link' %>
@@ -23,10 +28,5 @@
             </li>            
         <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-        <%# TODO:cambiar search-bar con helpers de rails %>
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
     </div>
 </nav>

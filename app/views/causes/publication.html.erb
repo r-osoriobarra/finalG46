@@ -1,64 +1,71 @@
-<div class="card">
-    <img src="https://www.somosiberoamerica.org/wp-content/uploads/2021/09/NOTA2-Empresas-y-medioambiente-980x653.png" class="card-img-bottom" alt="...">
-    <div class="card-body">
-        <h2 class="card-title font-weight-bold"><%= @cause.title %></h2>
-        <p class="card-text"><%= @cause.story %></p><%= link_to "Sitio web",@cause.project.website  %>
-        <div class="row">
-            <div class="col">
-                <strong>Meta:</strong><%= @cause.goal %>
+<body>
+    <div class="card">
+        <img src="https://www.somosiberoamerica.org/wp-content/uploads/2021/09/NOTA2-Empresas-y-medioambiente-980x653.png" class="card-img-bottom" alt="...">
+        <div class="card-body">
+            <h2 class="card-title font-weight-bold"><%= @cause.title %></h2>
+            <p class="card-text"><%= @cause.story %></p><%= link_to "Sitio web",@cause.project.website  %>
+            <div class="row">
+                <div class="col">
+                    <strong>Meta:</strong><%= @cause.goal %>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <strong>[0 -------Barra de meta ------ <%= @cause.goal %> pts]</strong>
+            <div class="row">
+                <div class="col">
+                    <div class="progress-outer">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:<%=@cause.percentage_of_goal_achieved%>%"></div>
+                            <div class="progress-value"><%=@cause.percentage_of_goal_achieved%>%</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row data">
-            <div class="col">
-                <table class="table">
-                    <thead>
-                        <th>Nº Donaciones</th>
-                        <th>Nº Puntos recibidos</th>
-                        <th>Equivalencia en $CLP</th>
-                        <th>% de meta cumplida</th>
-                        <th>Nº Apañadores</th>
-                    </thead>
-                    <tbody>
-                        <td><%= @cause.approved_donations.count %></td>
-                        <td><%= @cause.donation_points_amount %></td>
-                        <td><%= @cause.total_donations_clp%></td>
-                        <td><%= "#{@cause.percentage_of_goal_achieved}%" %></td>
-                        <td><%= @cause.unique_founders %></td>
-                    </tbody>
-                </table>
+            <div class="row data">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <th>Nº Donaciones</th>
+                            <th>Nº Puntos recibidos</th>
+                            <th>Equivalencia en $CLP</th>
+                            <th>% de meta cumplida</th>
+                            <th>Nº Apañadores</th>
+                        </thead>
+                        <tbody>
+                            <td><%= @cause.approved_donations.count %></td>
+                            <td><%= @cause.donation_points_amount %></td>
+                            <td><%= @cause.total_donations_clp%></td>
+                            <td><%= "#{@cause.percentage_of_goal_achieved}%" %></td>
+                            <td><%= @cause.unique_founders %></td>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <strong>Desde:</strong><%= @cause.start_date %> |
-                <strong>Hasta: </strong><%= @cause.end_date %>
+            <div class="row">
+                <div class="col">
+                    <strong>Desde:</strong><%= @cause.start_date %> |
+                    <strong>Hasta: </strong><%= @cause.end_date %>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <strong>Recompensas: </strong><%= @cause.reward %>
+            <div class="row">
+                <div class="col">
+                    <strong>Recompensas: </strong><%= @cause.reward %>
+                </div>
             </div>
-        </div>
-        <p class="card-text"><small class="text-muted">Última actualización: <%= @cause.updated_at %></small></p>
-        <%= link_to 'Donar', new_cause_donation_path(@cause.id), class:'btn btn-success'%>
-    </div>
-</div>
-
-<h2>Comentarios</h2>
-
-<%= render 'comments/form', cause: @cause, comment: @comment %>
-<% @cause.comments.each do |comment| %>
-    <div class="row">
-        <div class="col-2">
-            <%= comment.user.username %>
-        </div>
-        <div class="col-10">
-            <%= comment.comment %>
+            <p class="card-text"><small class="text-muted">Última actualización: <%= @cause.updated_at %></small></p>
+            <%= link_to 'Donar', new_cause_donation_path(@cause.id), class:'btn btn-success'%>
         </div>
     </div>
-<% end %>
+
+    <h2>Comentarios</h2>
+
+    <%= render 'comments/form', cause: @cause, comment: @comment %>
+    <% @cause.comments.each do |comment| %>
+        <div class="row">
+            <div class="col-2">
+                <%= comment.user.username %>
+            </div>
+            <div class="col-10">
+                <%= comment.comment %>
+            </div>
+        </div>
+    <% end %>
+</body>
