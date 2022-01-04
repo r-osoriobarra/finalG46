@@ -216,7 +216,7 @@ h3 {
 
 @keyframes animate-positive {0% { width: 0%; }}
 
-/*Create a cause view */
+/*Entrepenaur view */
 .pre-cause {
     font-size: 2em;
     text-align: center;
@@ -225,6 +225,7 @@ h3 {
 .pre-cause p {font-weight: bold;}
 .steps div p {font-size: 1.3em;}
 #step-title {font-weight: bold;}
+#apañapuntos {color: var(--color1); font-weight: bold;}
 
 .new-project {
     color: var(--purple);
