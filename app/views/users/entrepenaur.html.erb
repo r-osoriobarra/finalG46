@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrepenaur</title>
-</head>
-<body>
-    <h1>Aca va la explicación de como funciones si quieres crear una causa:</h1>
-    <ol>
-        <li>Primero crear un emprendimiento <%= link_to 'Agregar un proyecto', new_project_path, class:'btn btn-primary'%></li>
-        <li>Segundo, crea una causa para tu emprendimiento <%= link_to 'Agregar una causa', new_cause_path, class:'btn btn-success'%></li>
-    </ol>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Entrepenaur</title>
+    </head>
+    <body>
+        <header class="container pre-cause mb-5">
+            <p>En Apáñame, nuestro principal objetivo es ayudarte a conseguir el financiamiento que buscas</p>
+            <small id="go">Sigue los pasos para crear tu publicación y ser parte de la comunidad de emprendedores de Apáñame!    <span class="emoji">&#127793;</span></small>
+        </header>
+        <div class="container steps">
+            <section class="row">
+                <div class="col-6 border-right">
+                    <h2><span id="step-title">Paso 1:</span> Registra tu emprendimiento</h2>
+                    <p>Cuéntanos sobre tu negocio, microemprendimiento, proyecto o pyme. Todos tienen cabida en Apáñame!. Tómate tu tiempo para contarle a nuestros apañadores a qué te dedicas y de qué trata tu emprendimiento.</p>
+                    <%= link_to 'Agregar un proyecto', new_project_path, class:'btn new-project'%>
+                </div>
+                <div class="col-6 pl-5">
+                    <h2><span id="step-title">Paso 2:</span> Publica una causa</h2>
+                    <p>Una vez que tengas tu emprendimiento registrado, puedes publicar causas que te ayuden a financiarlo! Nuestros apañadores verán tu historia y apoyaran con <span class="font-italic">ApañaPuntos</span> a tu causa.  </p>
+                    <%= link_to 'Agregar una causa', new_cause_path, class:'btn new-cause'%>
+                </div>
+            </section>
+        </div>
+    </body>
 </html>

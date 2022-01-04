@@ -1,32 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <%= link_to "Apañame.org", root_path, class:'navbar-brand'  %>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <%= link_to root_path do%>
+        <%= image_tag("logo1.png", alt:"apañame", class:"logo") %>
+    <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-            <li class="nav-item">
-                <%= link_to current_user.email, profile_path(current_user.id), class:'nav-link' %>
-            </li>
-            
-            <li class="nav-item">
-                <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class:'nav-link' %>
-            </li>
-            <% if action_name != "entrepenaur" %>
-                <li>
-                    <%= link_to "Crea una causa", entrepenaur_path, class:"btn btn-success" %>
+        <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+                <% if action_name != "entrepenaur" %>
+                    <li class="nav-item">
+                        <%= link_to "Publicar una causa", entrepenaur_path, class:"create-cause" %>
+                    </li>
+                <% end %>
+            <% end %> 
+        </ul>   
+        <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+                <li class="nav-item">
+                    <%= link_to "Hola!, #{current_user.name}", profile_path(current_user.id), class:'nav-link profile' %>
+                </li>
+                
+                <li class="nav-item">
+                    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class:'nav-link logout' %>
+                </li>
+            <% else %>
+                <li class="nav-item">
+                    <%= link_to 'Log In', new_user_session_path, class:'nav-link login' %>
+                </li>            
+                <li class="nav-item">
+                    <%= link_to 'Sign Up', new_user_registration_path, class:'nav-link signup' %>
                 </li>
             <% end %>
-        <% else %>
-            <li class="nav-item">
-                <%= link_to 'Registrarse', new_user_registration_path, class:'nav-link' %>
-            </li>
-            <li class="nav-item">
-                <%= link_to 'Iniciar sesión', new_user_session_path, class:'nav-link' %>
-            </li>            
-        <% end %>
-    </ul>
+        </ul>
     </div>
 </nav>

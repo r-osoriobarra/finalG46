@@ -14,11 +14,100 @@
  *= require_self
  */
 
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&display=swap');
 
+:root{
+    --font: 'Quicksand', sans-serif;
+    --purple: #2F1793;
+    --color1: #009DAE; 
+}
+
+/*navbar*/
+.navbar {
+    background-color: var(--purple);
+    /* background: rgb(113,223,231);
+    background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%); */
+}
+
+.logo{ width: 10em; }
+.navbar-nav a {color: white !important;}
+
+.create-cause {
+    background-color: var(--color1);
+    border: 1.2px solid white;
+    border-radius: 15px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+.create-cause:hover {
+    background-color: #23D9C4;
+    transition: 0.1s;
+    background: rgb(113,223,231);
+    background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%);
+}
+
+.signup, .login, .profile, .logout {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    margin: 0 0.8em;
+}
+
+.signup {
+    border: 1px solid white;
+    border-radius: 15px;
+    /* background-color: #71DFE7; */
+}
+
+.signup:hover {
+    background: rgb(113,223,231);
+    background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%);
+    transition: 0.2s;
+}
 
 /*cause index view*/
+body {
+    /* background-image: url("background.jpg");
+    background-size: cover; */
+    background-color: #FEF5ED;
+    font-family: var(--font);
+}
+
+/* visitor */
+footer {
+    padding-bottom: 2em;
+    padding-top: 5em;
+    background-color: white;
+    border: 1px solid white;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    /* font-weight: 600; */
+}
+
+footer p {font-size: 2.5em;}
+
+#apañador {
+    font-weight: bold;
+    color: var(--color1);
+}
+.emoji {font-size:0.7em;}
+
+/* causes container */
+.index_causes {margin-top: 2em;}
+
 .card {
-    border-color: white;
+    border: none;
+    border-radius: 7.25rem;
+}
+
+h3 {
+    color: var(--color1);
+    margin-bottom: 1em;
 }
 
 /*cause card*/
@@ -27,13 +116,19 @@
     text-align: center;
 }
 
-.dails-left {
+#cause_img {
+    border-radius: 3% !important;
+    filter: brightness(50%);
+}
+
+.days-left {
     position: absolute;
     top: 8px;
     right: 16px;
-    font-size: 14px;
-    color:#71DFE7;
+    font-size: 0.8em;
+    color: #FFE652;
     font-weight: bold;
+    font-style: italic;
 }
 
 .cause_header {
@@ -43,9 +138,9 @@
     height: 3em;
     vertical-align: top;
     color: white;
-    font-style: italic;
     font-size: 1em;
     font-weight: bold;
+    font-family: var(--font);
 }
 
 .goToCause {
@@ -53,7 +148,7 @@
     color: white;
     font-weight: bold;
     position: absolute;
-    bottom: 3.5em;
+    bottom: 4em;
     right: 1em;
 }
 
@@ -62,75 +157,47 @@
     top: 98%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 .counter, .goal {
     position: absolute;
     bottom: 1.5em;
     color: white;
-    font-size: 11px;
+    font-size: 1em;
     margin-bottom: 0;
     font-weight: bold;
 }
 
-.counter {
-    left: 1em;
-}
-.goal {
-    right: 1em;
-}
+.counter {left: 1em;}
+.goal {right: 1em;}
+.progress-outer {width: 100%;}
+.progress-value {font-size: 11px;}
+.title {font-size: 1.5em;}
+.project {color: #C2FFF9;}
 
-.progress-outer {
-    width: 21.7em;
-}
-
-.progress-value {
-    font-size: 11px;
-}
-
-
+/*effects*/
 .goToCause:hover {
     color: white;
-    background-color: #009DAE;
-    transition: 1s;
+    background: rgb(113,223,231);
+    background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%);
 }
 
-
-#cause_img {
-    border-radius: 3% !important;
-    filter: brightness(50%);
-}
-
-#cause_img:hover {
+.card:hover  #cause_img {
     filter: brightness(80%);
     transition: 0.5s;
 }
 
-
-.title {
-    font-size: 1.5em;
-
-}
-
-.project {
-    color: #FFE652;
-}
-
-
-
 /*progress bar*/
 .progress{
-    height: 13px;
     margin: 0;
     overflow: visible;
     border-radius: 50px;
     background: #eaedf3;
     box-shadow: inset 0 10px  10px rgba(244, 245, 250,0.9);
 }
-.progress .progress-bar{
-    border-radius: 50px;
-}
-.progress .progress-value{
+.progress .progress-bar {border-radius: 50px}
+.progress .progress-value {
     position: relative;
     left: -45px;
     top: 4px;
@@ -141,15 +208,45 @@
     
 }
 .progress-bar.active{
-    animation: reverse progress-bar-stripes 0.80s linear infinite, animate-positive 5s;
-    background-color: #71DFE7;
+    animation: reverse progress-bar-stripes 0.80s linear infinite, animate-positive 4s;
+    background-color: var(--color1);
 }
 
-@-webkit-keyframes animate-positive{
-    0% { width: 0%; }
+@-webkit-keyframes animate-positive{0% { width: 0%; }}
+
+@keyframes animate-positive {0% { width: 0%; }}
+
+/*Create a cause view */
+.pre-cause {
+    font-size: 2em;
+    text-align: center;
 }
 
-@keyframes animate-positive {
-    0% { width: 0%; }
+.pre-cause p {font-weight: bold;}
+.steps div p {font-size: 1.3em;}
+#step-title {font-weight: bold;}
+
+.new-project {
+    color: var(--purple);
+    border: 1px solid var(--purple);
+    font-weight: bold;
 }
+
+.new-project:hover {
+    color: white;
+    background-color: var(--purple);
+}
+.new-cause {
+    color: var(--color1);
+    border: 1px solid var(--color1);
+    font-weight: bold; 
+}
+
+.new-cause:hover {
+    color: white;
+    background-color: var(--color1);
+}
+
+
+
 
