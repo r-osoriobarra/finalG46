@@ -223,6 +223,8 @@ h3 {
     color: var(--purple);
 }
 
+#go {color: black;}
+
 .pre-cause p {font-weight: bold;}
 .steps div p {font-size: 1.3em;}
 #step-title {font-weight: bold;}
@@ -315,6 +317,7 @@ select {
 option {text-align: start;}
 .box {font-size: 0.9em;}
 .box p {margin-bottom: 0;}
+
 hr {
     border-color: white; 
     width: 25px;
@@ -322,4 +325,27 @@ hr {
     margin-bottom: 0.5em;
 }
 
+/*Cause Form and Project Form*/
 
+.goalnumber {width: 29.59em;}
+
+form {
+    text-align: center;  
+}
+
+.form-group {margin-bottom: 2em;}
+.form-group label {font-weight: bold; color: var(--color1);}
+
+.new-cause-form .actions input{
+    border-radius: 15px;
+    border: 1px solid var(--color1);
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 3em;
+    background-color: var(--color1);
+}
+
+.new-cause-form .actions input:hover {
+    color: var(--purple);
+    background-color: var(--color2);
+}

@@ -1,41 +1,51 @@
-<%= form_with(model: project, remote: true) do |f| %>
-    <% if project.errors.any? %>
-        <div id = 'error_explanation'>
-            <h2>Esta categoría no se pudo crear por las siguientes razones:</h2>
-            <ul>
-                <% project.errors.full_messages.each do |msg|%>
-                    <li><%= msg %></li>
+<div class="container pb-5">
+        <div class="container text-center new-cause-form">
+            <h1 class="mb-4">Completa el formulario y registrar tu emprendimiento</h1>
+            <%= form_with(model: project, remote: true) do |f| %>
+                <% if project.errors.any? %>
+                    <div id = 'error_explanation'>
+                        <h2>Esta categoría no se pudo crear por las siguientes razones:</h2>
+                        <ul>
+                            <% project.errors.full_messages.each do |msg|%>
+                                <li><%= msg %></li>
+                        <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+                
+                <div class="form-group">
+                    <%= f.label :name, "¿Cómo se llama tu emprendimiento?" %><br>
+                    <%= f.text_field :name, size: '50x1' %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :description, "¿De qué trata tu proyecto?" %><br>
+                    <%= f.text_area :description, size: '50x4' %>
+                </div>   
+
+                <div class="form-group">
+                    <%= f.label :start_date, "Funcionando desde: " %><br>
+                    <%= f.date_field :start_date %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :website, "Sitio web (opcional) " %><br>
+                    <%= f.text_field :website, size: '50x1' %>
+                </div>  
+
+                <div class="form-group">
+                    <%= f.label :industry, "Rubro o industria: " %><br>
+                    <%= f.text_field :industry, size: '50x1' %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :address, "Dirección comercial (opcional): " %><br>
+                    <%= f.text_field :address, size: '50x1' %>
+                </div>
+
+                <div class = 'actions'>
+                    <%= f.submit %>
+                </div>
             <% end %>
-            </ul>
         </div>
-    <% end %>
-    
-    <div class="form-group">
-        <%= f.label :name, "Emprendimiento: " %>
-        <%= f.text_field :name %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :description, "Descripcion: " %>
-        <%= f.text_field :description %>
-    </div>   
-
-    <div class="form-group">
-        <%= f.label :start_date, "Funcionando desde: " %>
-        <%= f.date_field :start_date %>
-    </div>  
-
-    <div class="form-group">
-        <%= f.label :industry, "Rubro: " %>
-        <%= f.text_field :industry %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :address, "Direccion: " %>
-        <%= f.text_field :address %>
-    </div>
-
-    <div class = 'actions'>
-        <%= f.submit %>
-    </div>
-<% end %>
+</div>
