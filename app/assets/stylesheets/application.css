@@ -20,7 +20,9 @@
 :root{
     --font: 'Quicksand', sans-serif;
     --purple: #2F1793;
-    --color1: #009DAE; 
+    --color1: #009DAE;
+    --color2: #71DFE7;
+    --cream: #FEFBF3; 
 }
 
 /*navbar*/
@@ -46,8 +48,6 @@
 }
 
 .create-cause:hover {
-    background-color: #23D9C4;
-    transition: 0.1s;
     background: rgb(113,223,231);
     background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%);
 }
@@ -74,7 +74,7 @@
 body {
     /* background-image: url("background.jpg");
     background-size: cover; */
-    background-color: #FEF5ED;
+    background-color: var(--cream);
     font-family: var(--font);
 }
 
@@ -106,7 +106,7 @@ footer p {font-size: 2.5em;}
 }
 
 h3 {
-    color: var(--color1);
+    color: var(--purple);
     margin-bottom: 1em;
 }
 
@@ -220,6 +220,7 @@ h3 {
 .pre-cause {
     font-size: 2em;
     text-align: center;
+    color: var(--purple);
 }
 
 .pre-cause p {font-weight: bold;}
@@ -248,6 +249,77 @@ h3 {
     background-color: var(--color1);
 }
 
+/*Publication view*/
 
+.big-image {height: 28em; padding-right: 1em;}
+.small-images, #comments, #donation {padding-right: 3.95em;}
+
+.big-image img {
+    position:relative;
+    max-width: 100%;    
+    max-height: 100%;
+}
+.small-images img {
+    object-fit: cover;
+    flex-wrap: nowrap;  
+}
+
+.counter1, .goal1 {
+    position: absolute;
+    bottom: 0.5em;
+    color: white;
+    font-size: 2em;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.dupbar {height: 2em;}
+
+.counter1 {left: 1em;}
+.goal1 {right: 1em;}
+
+#donation {
+    text-align: center;
+}
+.donate {
+    padding: 1em 0.5em;
+    border-radius: 15px;
+    background-color: var(--purple);
+}
+
+.new-donation {
+    background-color: var(--purple);
+    /* padding-right: 20em;
+    padding-left: 20em; */
+}
+
+.new-donation .actions input{
+    border-radius: 15px;
+    border: 1px solid var(--purple);
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 3em;
+    background-color: var(--color1);
+}
+
+.new-donation .actions input:hover {
+    color: var(--purple);
+    background-color: var(--color2);
+}
+
+select {
+    padding: 0.2em 1.5em;
+    border-radius: 15px;
+    text-align: center;
+}
+
+option {text-align: start;}
+.box {font-size: 0.9em;}
+.box p {margin-bottom: 0;}
+hr {
+    border-color: white; 
+    width: 25px;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
 

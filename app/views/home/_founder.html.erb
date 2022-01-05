@@ -1,49 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Apañame.org</title>
-    </head>
-    <body>
-        <section class="index_causes container">
-            <h3>Últimas causas</h3>
-            <% @causes.in_groups_of(3, false).each do |group| %>
-                <div class="row mb-4">
-                    <% group.each do |cause| %>
-                        <div class="col">
-                            <div class="card mb-4">
-                                <div class="main_image">
-                                    <img id="cause_img" src="https://agenciaajn.com/new/wp-content/uploads/2018/01/panader%C3%ADa.jpg" class="card-img-top" alt="...">
-                                    <div class="days-left">Quedan <%=(Date.today - cause.end_date).to_i %> días</div>
-                                    <div class="cause_header">
-                                        <div class="project"><%= cause.project.name %></div>
-                                        <div class="title"><%= cause.title %></div>
-                                    </div>
-                                    <%# barra de progreso %>
-                                    <div class="counter"><%=cause.donation_points_amount%> pts raised </div>
-                                    <div class="goal"><%=cause.goal%> pts goal</div>
-                                    <div class="bar">
-                                        <div class="progress-outer">
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:<%=cause.percentage_of_goal_achieved%>%"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="donate">
-                                        <%= link_to 'Apañar!',publication_path(cause.id), class:"btn goToCause" %>
+<section class="index_causes container">
+    <h3>Últimas causas</h3>
+    <% @causes.in_groups_of(3, false).each do |group| %>
+        <div class="row mb-4">
+            <% group.each do |cause| %>
+                <div class="col">
+                    <div class="card mb-4">
+                        <div class="main_image">
+                            <img id="cause_img" src="https://agenciaajn.com/new/wp-content/uploads/2018/01/panader%C3%ADa.jpg" class="card-img-top" alt="...">
+                            <div class="days-left">Quedan <%=(Date.today - cause.end_date).to_i %> días</div>
+                            <div class="cause_header">
+                                <div class="project"><%= cause.project.name %></div>
+                                <div class="title"><%= cause.title %></div>
+                            </div>
+                            <%# barra de progreso %>
+                            <div class="counter"><%=cause.donation_points_amount%> pts raised </div>
+                            <div class="goal"><%=cause.goal%> pts goal</div>
+                            <div class="bar">
+                                <div class="progress-outer">
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-info progress-bar-striped active" style="width:<%=cause.percentage_of_goal_achieved%>%"></div>
                                     </div>
                                 </div>
                             </div>
+                            <div id="donate">
+                                <%= link_to 'Apañar!',publication_path(cause.id), class:"btn goToCause" %>
+                            </div>
                         </div>
-                    <% end %>
+                    </div>
                 </div>
             <% end %>
-        </section>
-        <script src="founder_index.js"></script>
-    </body>
-</html>
+        </div>
+    <% end %>
+</section>
+<script src="founder.js"></script>
 
 
 

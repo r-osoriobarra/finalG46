@@ -3,6 +3,8 @@ class CausesController < ApplicationController
     
     def publication
         @comment = Comment.new
+        @donation = Donation.new
+        @points = Point.all.order(:price)
     end
     
     def index

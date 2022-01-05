@@ -1,6 +1,3 @@
-#TODO: PROBAR LA APP CON DONATIONS EN PRODUCCION- SUBIR A HEROKU, GENERAR LLAVES Y AGREGAR RUTAS AL WEBHOOK EN MACH
-#TODO: CREAR UN METODO QUE VAYA DESCONTANDO LOS PUNTOS DE CADA CAUSA SI ES QUE SE REALIZA CON EXITO UNA DONACION
-
 class DonationsController < ApplicationController
     # * Paso 2: se agregan los require para poder setear la información que irá a MACH
     require 'json'
@@ -29,7 +26,7 @@ class DonationsController < ApplicationController
 
     def new
         @donation = Donation.new
-        @points = Point.all
+        @points = Point.all.order(:price)
     end
 
     def create        

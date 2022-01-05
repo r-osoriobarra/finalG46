@@ -2,6 +2,6 @@ class Point < ApplicationRecord
     
     has_many :donations
 
-    enum name: ["Punto", "Super Punto", "Mega Punto", "Apaña Punto"]
+    enum name: ["Apaña Punto", "Super Punto", "Mega Punto", "Hiper Punto"]
 end
     

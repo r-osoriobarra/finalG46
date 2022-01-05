@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
     before_action :set_cause, only: [:create]
     def new
         @comment = Comment.new
+        @username = current_user.username
     end
     
     def create

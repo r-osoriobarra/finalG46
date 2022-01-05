@@ -1,51 +1,54 @@
-<%= form_with(model: cause, remote: true) do |f| %>
-    <% if cause.errors.any? %>
-        <div id = 'error_explanation'>
-            <h2>La publicacion no se pudo crear por las siguientes razones:</h2>
-            <ul>
-                <% cause.errors.full_messages.each do |msg|%>
-                    <li><%= msg %></li>
-            <% end %>
-            </ul>
+<div class="container">
+    <h1 class="text-center">Llena este formulario y publica una causa para tu emprendimiento</h1>
+    <%= form_with(model: cause, remote: true) do |f| %>
+        <% if cause.errors.any? %>
+            <div id = 'error_explanation'>
+                <h2>La publicacion no se pudo crear por las siguientes razones:</h2>
+                <ul>
+                    <% cause.errors.full_messages.each do |msg|%>
+                        <li><%= msg %></li>
+                <% end %>
+                </ul>
+            </div>
+        <% end %>
+        
+        <div class="form-group">
+            <%= f.label :title, "Titulo de tu causa: "%>
+            <%= f.text_field :title %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :story, "Descripcion: " %>
+            <%= f.text_area :story ,class:'form-control' %>
+        </div>   
+
+        <div class="form-group">
+            <%= f.label :start_date, "Fecha de inicio: " %>
+            <%= f.date_field :start_date %>
+        </div>  
+
+        <div class="form-group">
+            <%= f.label :end_date, "Fecha de termino: " %>
+            <%= f.date_field :end_date %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :goal, "Meta: " %>
+            <%= f.number_field :goal %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :reward, "Recompensa: " %>
+            <%= f.text_field :reward %>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :project_id, "Emprendimiento: " %>
+            <%= f.collection_select :project_id, @projects, :id, :name  %>
+        </div>
+
+        <div class = 'actions'>
+            <%= f.submit %>
         </div>
     <% end %>
-    
-    <div class="form-group">
-        <%= f.label :title, "Titulo de la causa: "%>
-        <%= f.text_field :title %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :story, "Descripcion: " %>
-        <%= f.text_field :story %>
-    </div>   
-
-    <div class="form-group">
-        <%= f.label :start_date, "Fecha de inicio: " %>
-        <%= f.date_field :start_date %>
-    </div>  
-
-    <div class="form-group">
-        <%= f.label :end_date, "Fecha de termino: " %>
-        <%= f.date_field :end_date %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :goal, "Meta: " %>
-        <%= f.number_field :goal %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :reward, "Recompensa: " %>
-        <%= f.text_field :reward %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :project_id, "Emprendimiento: " %>
-        <%= f.collection_select :project_id, @projects, :id, :name  %>
-    </div>
-
-    <div class = 'actions'>
-        <%= f.submit %>
-    </div>
-<% end %>
+</div>
