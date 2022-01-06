@@ -105,6 +105,27 @@ footer p {font-size: 2.5em;}
 }
 .emoji {font-size:0.7em;}
 
+
+
+.start-today a{
+    border-radius: 15px;
+    border: 1px solid var(--purple);
+    font-weight: bold;
+    color: var(--purple);
+    padding: 0.5em 3em;
+    background-color: none;
+    filter: brightness(90%);
+    font-size: 2em;
+}
+
+.start-today a:hover {
+    /* color: var(--purple); */
+    background-color: var(--purple);
+    color: white;
+    filter: brightness(100%);
+    cursor: pointer;
+}
+
 /* causes container */
 .index_causes {margin-top: 2em;}
 
