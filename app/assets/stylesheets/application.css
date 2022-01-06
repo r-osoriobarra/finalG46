@@ -26,6 +26,12 @@
     --cream: #FEFBF3; 
 }
 
+/*notice and alerts*/
+.notice, .alert {
+    color: var(--color1);
+    font-size: 1.3em;
+    font-weight: bold;
+}
 /*navbar*/
 .navbar {
     background-color: var(--purple);
@@ -259,19 +265,12 @@ h3 {
 }
 
 /*Publication view*/
-.big-image {height: 28em; padding-right: 1em;}
-.small-images, #comments, #donation {padding-right: 3.95em;}
+.big-image {height: 28em; border-radius: 15px;}
 
-.big-image img {
-    position:relative;
-    max-width: 100%;    
-    max-height: 100%;
+#img-1, #img-2, #img-3 {
+    width: 100% !important;
+    border-radius: 15px;
 }
-.small-images img {
-    object-fit: cover;
-    flex-wrap: nowrap;  
-}
-
 .counter1, .goal1 {
     position: absolute;
     bottom: 0.5em;
@@ -289,10 +288,12 @@ h3 {
     text-align: center;
 }
 .donate {
-    padding: 1em 0.5em;
+    padding: 1.2em 0.5em;
     border-radius: 15px;
     background-color: var(--purple);
 }
+
+.donate h3 {font-size: 2.5em;}
 
 .new-donation {
     background-color: var(--purple);
@@ -348,7 +349,10 @@ hr {
     border-left: 5px solid var(--purple);
 }
 
-
+.all-comments {
+    border: 1px solid var(--purple);
+    border-radius: 15px;
+}
 /*Cause Form and Project Form*/
 .goalnumber {width: 29.59em;}
 
@@ -391,7 +395,6 @@ form {
 }
 
 /*Show donation*/
-
 #mach-title {
     color: var(--purple);
     font-weight: bold;
@@ -403,3 +406,19 @@ form {
     margin-top: 8em;
     
 }
+
+/*Form de user*/
+.user-update-btn input {
+    border-radius: 15px;
+    border: 1px solid var(--purple);
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 3em;
+    background-color: var(--purple);
+}
+
+.user-update-btn input:hover {
+    color: var(--purple);
+    background-color: var(--color2);
+    cursor: pointer;
+} 

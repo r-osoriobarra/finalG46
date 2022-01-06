@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
       @project.user = current_user
       respond_to do |format|
           if @project.save
-            format.html { redirect_to @project, notice: "Se ha creado el proyecto exitosamente." }
+            format.html { redirect_to @project, notice: "El proyecto se ha creado exitosamente." }
           else
             format.html { render :new, status: :unprocessable_entity }       
           end
@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   def destroy
       @project.destroy
       respond_to do |format|
-        format.html { redirect_to root_path, notice: "El proyecto se ha borrado." }
+        format.html { redirect_to root_path, notice: "El proyecto ha sido borrado." }
       end
   end    
 

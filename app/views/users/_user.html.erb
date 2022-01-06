@@ -1,3 +1,4 @@
+<h2>Datos personales</h2>
 <strong>Nombre: </strong>
 <p><%= @user.name %></p>
 
@@ -12,3 +13,7 @@
 
 <strong>Direccion: </strong>
 <p><%= @user.address %></p>
+
+<div id="edit-btn">
+    <%= link_to 'Editar', edit_user_path(current_user.id), remote: true %>
+</div>

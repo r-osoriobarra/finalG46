@@ -1,5 +1,5 @@
-<h1>Cause#show</h1>
-<div id="cause">
+<div id="cause" class="container">
+    <h1><%= @cause.title %></h1>
     <strong>Titulo: </strong>
     <p><%= @cause.title %></p>
     
@@ -20,9 +20,8 @@
 
     <strong>Emprendimiento: </strong>
     <p><%= @cause.project.name %></p>
-
+    <%= link_to 'Editar', edit_cause_path(@cause.id), local: true %> |
+    <%= link_to 'Eliminar', cause_path(@cause.id), method: :delete,  local: true, data: {confirm: 'Estás seguro que quieres eliminar esta causa?'} %> |
+    <%= link_to 'Volver', profile_path(current_user) %>
 </div>
 
-<%= link_to 'Editar', edit_cause_path(@cause.id), local: true %> |
-<%= link_to 'Eliminar', cause_path(@cause.id), method: :delete,  local: true, data: {confirm: 'Estás seguro que quieres eliminar esta causa?'} %> |
-<%= link_to 'Volver', profile_path(current_user) %>

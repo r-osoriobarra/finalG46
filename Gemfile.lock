@@ -347,7 +347,6 @@ DEPENDENCIES
   faker
   groupdate (~> 5.2)
   jbuilder (~> 2.5)
-  jquery-rails
   listen (>= 3.0.5, < 3.2)
   omniauth
   omniauth-facebook

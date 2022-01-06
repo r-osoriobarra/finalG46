@@ -64,7 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise' 
 gem 'faker'
-gem 'jquery-rails'
 gem 'bootstrap', '~> 4.6.1'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
@@ -80,4 +79,3 @@ gem "chartkick", "~> 4.0"
 gem "groupdate", "~> 5.2"
 #rollbar
 gem 'rollbar'
-

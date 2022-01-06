@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(window).on("load", function () {
     $('.counter').hide();
     $('.counter').delay(1000).fadeIn();
     $('.goal').hide();

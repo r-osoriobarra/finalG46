@@ -1,47 +1,57 @@
-<h1>Users#show</h1>
 
-<div id="user">
-    <strong>Nombre: </strong>
-    <p><%= @user.name %></p>
-    
-    <strong>Apellidos: </strong>
-    <p><%= @user.surname %></p>
+<div class="container">
+    <h1 style="color: #2F1793; font-weight: bold;">Mi panel </h1>
+    <div class="row mt-3">
+        <div id="user" class="col-4 personal">
+            <h2>Datos personales</h2>
+            <strong>Nombre: </strong>
+            <p><%= @user.name %></p>
+            
+            <strong>Apellidos: </strong>
+            <p><%= @user.surname %></p>
 
-    <strong>Username: </strong>
-    <p><%= @user.username %></p>
+            <strong>Username: </strong>
+            <p><%= @user.username %></p>
 
-    <strong>Telefono: </strong>
-    <p><%= @user.phone_number %></p>
+            <strong>Teléfono: </strong>
+            <p><%= @user.phone_number %></p>
 
-    <strong>Direccion: </strong>
-    <p><%= @user.address %></p>
+            <strong>Direccion: </strong>
+            <p><%= @user.address %></p>
+
+            <div id="edit-btn">
+                <%= link_to 'Editar', edit_user_path(current_user.id), remote: true %>
+            </div>
+        </div>
+        <div class="col-4 personal">
+        <h2>Mis Emprendimientos</h2>
+            <ul>
+                <% current_user.projects.each do |project| %>
+                    <li><%= project.name %> | <%= link_to 'ver', project_path(project.id)%></li>
+                <% end %>
+            </ul>
+        </div>
+        <div class="col-4 personal">
+        <h2>Mis Causas</h2>
+        <ul>
+            <% @my_causes.each do |cause| %>
+                <li><%= cause.title %> | <%= link_to 'ver', cause_path(cause.id)%></li>
+            <% end %>
+        </ul>
+    </div>
 </div>
-
-<div id="edit-btn">
-    <%= link_to 'Editar', edit_user_path(current_user.id), remote: true %>
-</div>
-
-<h2>Mis Emprendimientos</h2>
-<ul>
-    <% current_user.projects.each do |project| %>
-        <li><%= project.name %> | <%= link_to 'ver', project_path(project.id)%></li>
-    <% end %>
-</ul>
-
-<h2>Mis Causas</h2>
-<ul>
-    <% @my_causes.each do |cause| %>
-        <li><%= cause.title %> | <%= link_to 'ver', cause_path(cause.id)%></li>
-    <% end %>
-</ul>
-
-<h2>Mis donaciones por hora</h2>
-<div id="donation_per_hour">
-    <%= area_chart @donations_per_hour, colors: ["#109618"]  %>
-</div>
-<h2>Distribución de donaciones por causa</h2>
-
-<%#TODO: cambiar las leyendas de este gráfico %>
-<div id="donation_per_cause">
-    <%= pie_chart @donations_per_cause, label: "Value"  %>
+<div id="user" class="row mt-3">
+    <div class="col-6">
+        <h2>Mis donaciones por hora</h2>
+        <div id="donation_per_hour">
+            <%= area_chart @donations_per_hour, colors: ["#109618"]  %>
+        </div>
+    </div>
+    <div class="col-6">
+        <h2>Distribución de donaciones por causa</h2>
+        <%#TODO: cambiar las leyendas de este gráfico %>
+        <div id="donation_per_cause">
+            <%= pie_chart @donations_per_cause, label: "Value"  %>
+        </div>
+    </div>    
 </div>

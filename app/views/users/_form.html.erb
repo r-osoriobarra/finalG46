@@ -11,12 +11,12 @@
     <% end %>
     
     <div class="form-group">
-        <%= f.label :name %>
+        <%= f.label :name, "Nombre" %>
         <%= f.text_field :name, class:'form-control' %>
     </div>
     
-    <div class="form-group">
-        <%= f.label :surname %>
+    <div class="form-group ">
+        <%= f.label :surname, "Apellido" %>
         <%= f.text_field :surname, class:'form-control' %>
     </div>
 
@@ -26,16 +26,16 @@
     </div>
 
     <div class="form-group">
-        <%= f.label :phone_number%>
+        <%= f.label :phone_number, "Teléfono"%>
         <%= f.text_field :phone_number, class:'form-control' %>
     </div>
 
     <div class="form-group">
-        <%= f.label :address%>
+        <%= f.label :address, "Dirección"%>
         <%= f.text_field :address, class:'form-control' %>
     </div>
 
-    <div class = 'actions'>
-        <%= f.submit %>
+    <div class = 'actions user-update-btn'>
+        <%= f.submit "Actualizar mis datos" %>
     </div>
 <% end %>
