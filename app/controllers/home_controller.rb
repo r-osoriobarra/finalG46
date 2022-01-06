@@ -7,6 +7,6 @@ class HomeController < ApplicationController
             :project, 
             :report, 
             :comments
-        )
+        ).order(created_at: :desc)
     end
 end

@@ -22,6 +22,7 @@
     --purple: #2F1793;
     --color1: #009DAE;
     --color2: #71DFE7;
+    --color3: #FFE652;
     --cream: #FEFBF3; 
 }
 
@@ -50,6 +51,7 @@
 .create-cause:hover {
     background: rgb(113,223,231);
     background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%);
+    cursor: pointer;
 }
 
 .signup, .login, .profile, .logout {
@@ -68,6 +70,7 @@
     background: rgb(113,223,231);
     background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%);
     transition: 0.2s;
+    cursor: pointer;
 }
 
 /*cause index view*/
@@ -107,7 +110,9 @@ footer p {font-size: 2.5em;}
 
 h3 {
     color: var(--purple);
-    margin-bottom: 1em;
+    margin-bottom: em;
+    font-weight: bold;
+    font-size: 3em;
 }
 
 /*cause card*/
@@ -126,9 +131,8 @@ h3 {
     top: 8px;
     right: 16px;
     font-size: 0.8em;
-    color: #FFE652;
+    color: var(--color3);
     font-weight: bold;
-    font-style: italic;
 }
 
 .cause_header {
@@ -181,6 +185,7 @@ h3 {
     color: white;
     background: rgb(113,223,231);
     background: radial-gradient(circle, rgba(113,223,231,1) 0%, rgba(0,157,174,1) 100%);
+    cursor: pointer;
 }
 
 .card:hover  #cause_img {
@@ -239,6 +244,7 @@ h3 {
 .new-project:hover {
     color: white;
     background-color: var(--purple);
+    cursor: pointer;
 }
 .new-cause {
     color: var(--color1);
@@ -249,10 +255,10 @@ h3 {
 .new-cause:hover {
     color: white;
     background-color: var(--color1);
+    cursor: pointer;
 }
 
 /*Publication view*/
-
 .big-image {height: 28em; padding-right: 1em;}
 .small-images, #comments, #donation {padding-right: 3.95em;}
 
@@ -306,6 +312,7 @@ h3 {
 .new-donation .actions input:hover {
     color: var(--purple);
     background-color: var(--color2);
+    cursor: pointer;
 }
 
 select {
@@ -325,8 +332,24 @@ hr {
     margin-bottom: 0.5em;
 }
 
-/*Cause Form and Project Form*/
+.days-left1 {
+    color: var(--purple);
+    font-weight: bold;
+    font-size: 1.5em;
+    bottom: 2em;
+}
 
+.comments .actions input{
+    background-color: var(--purple);
+    color: white;    
+}
+
+.user-comment {
+    border-left: 5px solid var(--purple);
+}
+
+
+/*Cause Form and Project Form*/
 .goalnumber {width: 29.59em;}
 
 form {
@@ -335,6 +358,7 @@ form {
 
 .form-group {margin-bottom: 2em;}
 .form-group label {font-weight: bold; color: var(--color1);}
+.project label {color: var(--purple);}
 
 .new-cause-form .actions input{
     border-radius: 15px;
@@ -348,4 +372,34 @@ form {
 .new-cause-form .actions input:hover {
     color: var(--purple);
     background-color: var(--color2);
+    cursor: pointer;
+}
+
+.new-project-form .actions input{
+    border-radius: 15px;
+    border: 1px solid var(--purple);
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 3em;
+    background-color: var(--purple);
+}
+
+.new-project-form .actions input:hover {
+    color: var(--purple);
+    background-color: var(--color2);
+    cursor: pointer;
+}
+
+/*Show donation*/
+
+#mach-title {
+    color: var(--purple);
+    font-weight: bold;
+}
+
+/*footer bar*/
+#footer {
+    background-color: var(--purple);
+    margin-top: 8em;
+    
 }

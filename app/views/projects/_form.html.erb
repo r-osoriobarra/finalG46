@@ -1,5 +1,5 @@
 <div class="container pb-5">
-        <div class="container text-center new-cause-form">
+        <div class="container text-center new-project-form">
             <h1 class="mb-4">Completa el formulario y registrar tu emprendimiento</h1>
             <%= form_with(model: project, remote: true) do |f| %>
                 <% if project.errors.any? %>
@@ -13,38 +13,38 @@
                     </div>
                 <% end %>
                 
-                <div class="form-group">
+                <div class="form-group project">
                     <%= f.label :name, "¿Cómo se llama tu emprendimiento?" %><br>
                     <%= f.text_field :name, size: '50x1' %>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group project">
                     <%= f.label :description, "¿De qué trata tu proyecto?" %><br>
                     <%= f.text_area :description, size: '50x4' %>
                 </div>   
 
-                <div class="form-group">
+                <div class="form-group project">
                     <%= f.label :start_date, "Funcionando desde: " %><br>
                     <%= f.date_field :start_date %>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group project">
                     <%= f.label :website, "Sitio web (opcional) " %><br>
                     <%= f.text_field :website, size: '50x1' %>
                 </div>  
 
-                <div class="form-group">
+                <div class="form-group project">
                     <%= f.label :industry, "Rubro o industria: " %><br>
                     <%= f.text_field :industry, size: '50x1' %>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group project">
                     <%= f.label :address, "Dirección comercial (opcional): " %><br>
                     <%= f.text_field :address, size: '50x1' %>
                 </div>
 
                 <div class = 'actions'>
-                    <%= f.submit %>
+                    <%= f.submit "Registra tu emprendimiento" %>
                 </div>
             <% end %>
         </div>

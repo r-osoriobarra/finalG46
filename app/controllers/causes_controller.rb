@@ -29,7 +29,7 @@ class CausesController < ApplicationController
             if @cause.save
                 CauseMailer.with(cause: @cause).new_cause_email.deliver_later
                 #CausePoint.create_point_stock(@cause)
-                format.html { redirect_to @cause, notice: "Tu causa se ha creado exitosamente." }
+                format.html { redirect_to publication_path(@cause), notice: "Tu causa se ha creado exitosamente." }
             else
                 format.html { render :new, status: :unprocessable_entity }       
             end

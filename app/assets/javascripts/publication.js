@@ -1,19 +1,19 @@
 $(document).ready(function() {
-    let main = $('#main');
-    let two = $('#two');
-    let three = $('#three');
-    let four = $('#four');
+    var one = $('#one');
+    var two = $('#two');
+    var three = $('#three');
+    var four = $('#four');
 
     two.click(function() {
-        main.attr("src", this.src);
+        one.attr("src", this.src);
     })
 
     three.click(function() {
-        main.attr("src", this.src);
+        one.attr("src", this.src);
     })
 
     four.click(function() {
-        main.attr("src", this.src);
+        one.attr("src", this.src);
     })
 
     $('.counter1').hide();
@@ -22,7 +22,7 @@ $(document).ready(function() {
     $('.goal1').delay(1000).fadeIn();
 
     $("select").change(function() {
-        let opt = $(this).val();
+        var opt = $(this).val();
         if (opt == 1) {
             $(".box").not(".pts1").hide();
             $(".pts1").show();
@@ -44,6 +44,4 @@ $(document).ready(function() {
             $("hr").show();
         }
     });
-
-
 });
