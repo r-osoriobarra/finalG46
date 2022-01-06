@@ -421,3 +421,38 @@ form {
     background-color: var(--color2);
     cursor: pointer;
 } 
+
+/*buttons login sign-up */
+.session-button .actions input{
+    border-radius: 15px;
+    border: 1px solid var(--purple);
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 3em;
+    background-color: var(--purple);
+    filter: brightness(90%);
+}
+
+.session-button .actions input:hover {
+    /* color: var(--purple); */
+    /* background-color: var(--color2); */
+    filter: brightness(100%);
+    cursor: pointer;
+}
+
+.registration-button .actions input{
+    border-radius: 15px;
+    border: 1px solid var(--purple);
+    font-weight: bold;
+    color: white;
+    padding: 0.5em 3em;
+    background-color: var(--purple);
+    filter: brightness(90%);
+}
+
+.registration-button .actions input:hover {
+    /* color: var(--purple); */
+    /* background-color: var(--color2); */
+    filter: brightness(100%);
+    cursor: pointer;
+}

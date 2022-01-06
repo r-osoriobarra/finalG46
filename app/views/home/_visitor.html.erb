@@ -1,6 +1,6 @@
 <div class="presentation">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" style="height: 70em;">
+        <div class="carousel-inner">
             <div class="carousel-item active ">         
                 <%= link_to root_path do%>
                     <%= image_tag("presentacion1.jpg", alt:"apañame", class:"d-block w-100") %>
@@ -82,14 +82,5 @@
     </footer>
     <div class="text-center mb-5">
         <%= link_to 'SignUp', new_user_registration_path, class:'btn btn-primary' %>
-    </div>
-    <div id="facebook" class="text-center mb-5">
-        <% User.omniauth_providers.each do |provider| %>
-            <%= link_to "Iniciar sesión con #{OmniAuth::Utils.camelize(provider)}", 
-            omniauth_authorize_path(@user, provider), method: :post, class: 'btn btn-primary' %>
-        <% end %>
-    </div> 
-    <div class="text-center">
-        <%= link_to 'LogIn', new_user_session_path, class:'btn btn-primary' %>
     </div>
 </div>
