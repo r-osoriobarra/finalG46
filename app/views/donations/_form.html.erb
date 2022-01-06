@@ -1,5 +1,5 @@
 <div class="new-donation container text-center">
-    <%= form_with(model: [@cause, donation], remote: true) do |f| %>
+    <%= form_with(model: [cause, donation], remote: true) do |f| %>
         <% if donation.errors.any? %>
             <div id = 'error_explanation'>
                 <h2>La donación no se pudo crear por las siguientes razones:</h2>
