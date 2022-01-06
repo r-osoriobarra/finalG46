@@ -37,7 +37,7 @@ class DonationsController < ApplicationController
         @donation.title = @cause.title
         @donation.message = "Donando por #{current_user.email}"
         #calculo de dinero a donar
-        @donation.amount = Point.find(params[:donation][:point_id]).price * @donation.quantity
+        @donation.amount = ((Point.find(params[:donation][:point_id]).price) * (@donation.quantity))
 
         #* Paso 1. se configura los datos que se enviarán a MACH
         payload = JSON.dump({ 
