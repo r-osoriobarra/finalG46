@@ -79,7 +79,7 @@
     cursor: pointer;
 }
 
-/*cause index view*/
+/*founder view*/
 body {
     /* background-image: url("background.jpg");
     background-size: cover; */
@@ -145,9 +145,11 @@ h3 {
 .main-image {
     position: relative;
     text-align: center;
+    height: 20em;
 }
 
 #cause_img {
+    height: 16em;
     border-radius: 3% !important;
     filter: brightness(50%);
 }

@@ -60,7 +60,7 @@ class CausesController < ApplicationController
     private
 
     def cause_params
-        params.require(:cause).permit(:title, :story, :start_date, :end_date, :goal, :reward, :project_id)
+        params.require(:cause).permit(:title, :story, :start_date, :end_date, :goal, :reward, :cause_img,  :project_id)
     end
 
     def set_cause

@@ -72,7 +72,11 @@ prices = [
 end
 
 #Causes
-#   test_image = "https://imagenes.t13.cl/images/original/2018/01/1515438975-almacenes-de-chile-1-570x321.jpg?width=1200"
+test_image = [
+    "https://imagenes.t13.cl/images/original/2018/01/1515438975-almacenes-de-chile-1-570x321.jpg?width=1200",
+    "https://uddventures.udd.cl/hubfs/almacenguru-1.jpg",
+    "https://res.cloudinary.com/civico/image/upload/c_fit,f_auto,fl_lossy,h_1200,q_auto:low,w_1200/v1565805624/brand/image/5d544c322f41f3d1c30006cc.jpg", "https://finde.latercera.com/wp-content/uploads/2019/01/Bakery-Lynch-de-chef-y-hoteles-700x450.jpg","https://i.pinimg.com/originals/61/bd/03/61bd03f7b5e6aefbff39afa43320f5cc.jpg", "https://media.elmostrador.cl/2021/08/verdulerias-tamed-foods.png", "https://media-cdn.tripadvisor.com/media/photo-s/06/2c/29/70/getlstd-property-photo.jpg", "https://pqs.pe/wp-content/uploads/2021/02/PQS-Emporio-comercial-de-Gamarra-oferta-prendas-a-bajos-precios.jpg", "https://emprendeconhuevos.com/wp-content/uploads/2019/09/heladeria_plan.jpg", "https://www.salamancabusca.cl/wp-content/uploads/2017/08/foto-4-min.jpg", "https://media.chvnoticias.cl/2020/07/EdBXTH2XgAY2iS4.jpg", "https://www.100plandenegocios.com/wp-content/uploads/2013/11/plan-de-negocio-para-peluqueria.jpg"
+]
 
 
 
@@ -93,8 +97,8 @@ end
         end_date: Date.today + rand(30..60),
         goal:rand(500..2000),
         reward: "10% en la primera compra de mi tienda. 50% de descuento en cualquier producto a los 5 primeros donadores.",
-        project_id: c+1
-        # cause_image: test_image
+        project_id: c+1,
+        cause_img: test_image[rand(0..(test_image.size-1))]
     )
 end
 

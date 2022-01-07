@@ -1,13 +1,13 @@
 <section class="index_causes container">
-    <h3 class="text-center">¡Apaña a nuestros emprendedores!</h3>
-    <h4 class="text-center">ÚLTIMAS CAUSAS</h4>
+    <h3 class="text-center mb-4">¡Apaña a nuestros emprendedores!</h3>
+    <h4 class="text-center mb-5">ÚLTIMAS CAUSAS</h4>
     <% @causes.in_groups_of(3, false).each do |group| %>
         <div class="row mb-4">
             <% group.each do |cause| %>
                 <div class="col">
                     <div class="card mb-4">
                         <div class="main_image">
-                            <img id="cause_img" src="https://agenciaajn.com/new/wp-content/uploads/2018/01/panader%C3%ADa.jpg" class="card-img-top" alt="...">
+                            <img id="cause_img" src="<%=cause.cause_img%>" class="card-img-top" alt="...">
                             <div class="days-left">Quedan <%=(cause.end_date - cause.start_date).to_i %> días</div>
                             <div class="cause_header">
                                 <div class="project"><%= cause.project.name %></div>

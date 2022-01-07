@@ -18,7 +18,12 @@
     <div class="form-group">
         <%= f.label :story, "Descripcion: " %>
         <%= f.text_field :story %>
-    </div>   
+    </div>
+
+    <div class="form-group">
+        <%= f.label :cause_img, "Agrega una url para tu foto principal " %><br>
+        <%= f.text_field :cause_img, placeholder:"http://" %>
+    </div>    
 
     <div class="form-group">
         <%= f.label :start_date, "Fecha de inicio: " %>
@@ -46,6 +51,6 @@
     </div>
 
     <div class = 'actions'>
-        <%= f.submit %>
+        <%= f.submit "Editar" %>
     </div>
 <% end %>
