@@ -43,7 +43,7 @@ class CausesController < ApplicationController
             if @cause.update(cause_params)
                 
                 #CausePoint.update_point_stock(@cause)
-                format.html { redirect_to @cause, notice: "La causa se ha actualizado exitosamente." }
+                format.html { redirect_to publication_path(@cause), notice: "La causa se ha actualizado exitosamente." }
             else
                 format.html { render :edit, status: :unprocessable_entity }
             end

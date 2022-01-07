@@ -19,3 +19,20 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// $(window).on("load", function () {
+//     function refresh()
+//     {
+//         var div = $('#refreshable'),
+//             divHtml = div.html();
+
+//         div.html(divHtml);
+//     }
+
+//     setInterval(function()
+//     {
+//         refresh()
+//     }, 1000); //300000 is 5minutes in ms
+// })
+
+    

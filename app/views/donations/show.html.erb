@@ -1,22 +1,22 @@
 <div class="container qr-donation text-center" style="padding-bottom: 2.4em;">
     <h1 class="mb-5">Escanea el código QR en tu aplicación <span id="mach-title">MACH</span><br> y ¡dona a esta causa!</h1>
     <div id="donation" class="row">
-    <div class="col-7 text-right">
-        <%= raw @svg %>
-    </div>
-    <div class="col-5 text-left">
-        <strong>Total donación: </strong>
-        <p>$<%= @donation.amount %> CLP</p>
-        
-        <strong>Estas apañando a la causa: </strong>
-        <p><%= @donation.cause.title %> del emprendimiento <%= @donation.cause.project.name %></p>
+        <div class="col-7 text-right">
+            <%= raw @svg %>
+        </div>
+        <div class="col-5 text-left">
+            <strong>Total donación: </strong>
+            <p>$<%= @donation.amount %> CLP</p>
+            
+            <strong>Estas apañando a la causa: </strong>
+            <p><%= @donation.cause.title %> del emprendimiento <%= @donation.cause.project.name %></p>
 
-        <strong>Cantidad de <%= Point.find(@donation.point_id).name %>s: </strong>
-        <p><%= @donation.quantity %></p>    
+            <strong>Cantidad de <%= Point.find(@donation.point_id).name %>s: </strong>
+            <p><%= @donation.quantity %></p>    
 
-        <strong>Código: </strong>
-        <p><%= @donation.code %></p>
-    </div>
-        <%= link_to "Paid!", check_donation_path(@donation.id) %>
+            <strong>Código: </strong>
+            <p><%= @donation.code %></p>
+            
+        </div>
     </div>
 </div>

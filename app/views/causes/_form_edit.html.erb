@@ -1,3 +1,6 @@
+<div class="container pb-5">
+    <div class="container new-cause-form">
+    <h1 class="text-center mb-4">Editar causa</h1>
 <%= form_with(model: cause, remote: true) do |f| %>
     <% if cause.errors.any? %>
         <div id = 'error_explanation'>
@@ -9,14 +12,18 @@
             </ul>
         </div>
     <% end %>
+    <div class="form-group">
+        <%= f.label :project_id, "Emprendimiento: " %><br>
+        <%= @project%>
+    </div>
     
     <div class="form-group">
-        <%= f.label :title, "Titulo de la causa: "%>
+        <%= f.label :title, "Titulo de la causa: "%><br>
         <%= f.text_field :title %>
     </div>
 
     <div class="form-group">
-        <%= f.label :story, "Descripcion: " %>
+        <%= f.label :story, "Descripcion: " %><br>
         <%= f.text_field :story %>
     </div>
 
@@ -26,31 +33,30 @@
     </div>    
 
     <div class="form-group">
-        <%= f.label :start_date, "Fecha de inicio: " %>
+        <%= f.label :start_date, "Fecha de inicio: " %><br>
         <%= f.date_field :start_date %>
     </div>  
 
     <div class="form-group">
-        <%= f.label :end_date, "Fecha de termino: " %>
+        <%= f.label :end_date, "Fecha de termino: " %><br>
         <%= f.date_field :end_date %>
     </div>
 
     <div class="form-group">
-        <%= f.label :goal, "Meta: " %>
+        <%= f.label :goal, "Meta: " %><br>
         <%= f.number_field :goal %>
     </div>
 
     <div class="form-group">
-        <%= f.label :reward, "Recompensa: " %>
+        <%= f.label :reward, "Recompensa: " %><br>
         <%= f.text_field :reward %>
     </div>
 
-    <div class="form-group">
-        <%= f.label :project_id, "Emprendimiento: " %>
-        <%= @project%>
-    </div>
+    
 
     <div class = 'actions'>
         <%= f.submit "Editar" %>
     </div>
 <% end %>
+</div>
+</div>
