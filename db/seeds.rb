@@ -43,7 +43,7 @@ User.create!(
 )
 
 #Proyects
-10.times do |p|
+20.times do |p|
     Project.create!(
         name: "project #{p}",
         description: Faker::Lorem.paragraph,
@@ -72,7 +72,11 @@ prices = [
 end
 
 #Causes
-10.times do |c|
+#   test_image = "https://imagenes.t13.cl/images/original/2018/01/1515438975-almacenes-de-chile-1-570x321.jpg?width=1200"
+
+
+
+20.times do |c|
     Cause.create!(
         title: Faker::DcComics.title,
         story: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi nulla quisquam molestiae beatae pariatur, repellendus placeat aperiam cumque ducimus quibusdam excepturi ratione. Architecto delectus perferendis ut nesciunt placeat ratione cupiditate.
@@ -86,10 +90,11 @@ end
         Rerum labore, quae voluptatem ad sed tempora deserunt placeat ducimus consectetur nemo vero cupiditate eum, at totam esse nisi molestiae eaque minima! Nobis soluta dolore maxime sint similique quia? Sint?
         Ipsa mollitia, libero architecto voluptatibus expedita veritatis, officiis perspiciatis iusto doloribus animi quod ex praesentium provident quam possimus. Qui dolore recusandae illo excepturi. Ab sed sint facilis? Rem, atque aut.',
         start_date: Date.today,
-        end_date: Date.today + 30,
-        goal:rand(100..5000),
-        reward: "user offers a reward for the supports (discount)",
+        end_date: Date.today + rand(30..60),
+        goal:rand(500..2000),
+        reward: "10% en la primera compra de mi tienda. 50% de descuento en cualquier producto a los 5 primeros donadores.",
         project_id: c+1
+        # cause_image: test_image
     )
 end
 
@@ -111,3 +116,10 @@ end
         cause_id: (r+1)
     )
 end
+
+# <div id="img-2" class="carousel-item">
+# <img src="https://uddventures.udd.cl/hubfs/almacenguru-1.jpg" alt="" class="d-block w-100">
+# </div>
+# <div class="carousel-item">
+# <img id="img-3" src="https://res.cloudinary.com/civico/image/upload/c_fit,f_auto,fl_lossy,h_1200,q_auto:low,w_1200/v1565805624/brand/image/5d544c322f41f3d1c30006cc.jpg" alt="" class="d-block w-100">
+# </div>

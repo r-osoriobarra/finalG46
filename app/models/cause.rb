@@ -14,7 +14,7 @@ class Cause < ApplicationRecord
   end
 
   def donation_points_amount
-    self.approved_donations.pluck(:amount).map {|e| e/1000}.sum
+    self.approved_donations.pluck(:amount).map {|e| (e/(Point.find(1).price)).round()}.sum
   end
 
   def percentage_of_goal_achieved

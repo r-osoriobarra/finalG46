@@ -8,7 +8,7 @@
                     <div class="card mb-4">
                         <div class="main_image">
                             <img id="cause_img" src="https://agenciaajn.com/new/wp-content/uploads/2018/01/panader%C3%ADa.jpg" class="card-img-top" alt="...">
-                            <div class="days-left">Quedan <%=(Date.today - cause.end_date).to_i %> días</div>
+                            <div class="days-left">Quedan <%=(cause.end_date - cause.start_date).to_i %> días</div>
                             <div class="cause_header">
                                 <div class="project"><%= cause.project.name %></div>
                                 <div class="title"><%= cause.title %></div>

@@ -25,6 +25,8 @@ class CausesController < ApplicationController
 
     def create
         @cause =  Cause.new(cause_params)
+        @cause.goal = (params[:cause][:goal].to_i / Point.find(1).price)
+
         respond_to do |format|
             if @cause.save
                 CauseMailer.with(cause: @cause).new_cause_email.deliver_later
