@@ -3,6 +3,11 @@ class Cause < ApplicationRecord
   has_one :report
   has_many :donations
   has_many :comments  
+  
+  #validations
+  validates :title, :story, :start_date, :end_date, :project_id, :goal, :cause_img, presence: true
+  
+  #rollbar
   after_validation :report_validation_errors_to_rollbar
   
   def unique_founders

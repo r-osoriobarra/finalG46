@@ -1,7 +1,12 @@
 <div class="presentation">
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active ">         
+            <div class="carousel-item active "> 
+                <%= link_to root_path do%>
+                    <%= image_tag("presentacion0.jpg", alt:"apañame", class:"d-block w-100") %>
+                <% end %>
+            </div>
+            <div class="carousel-item ">         
                 <%= link_to root_path do%>
                     <%= image_tag("presentacion1.jpg", alt:"apañame", class:"d-block w-100") %>
                 <% end %>
@@ -49,29 +54,30 @@
 </div>
 
 <div class="container">
+    <hr style="border: 1px solid black; margin-top:6em; width:20em;">
     <h3 class="text-center mt-4 pt-5" style="">Conviertete en un Apañador! apoyando a emprendedores que buscan financiamiento para sus negocios.</h3>
     <h4 class="font-weight-normal text-center mt-5" style="color: #2F1793; font-size:2em;">En Apañame, cualquier persona que se registre puede realizar una publicación buscando financiamiento para su negocio y/o aportar a otros emprendimientos.</h4>
 
     <div class="row mt-5 pt-5" style="font-size: 1.7em;" >
-        <div class="col-6" style="border-right: 5px solid #2F1793; ">
+        <div class="col-md-6" style="border-right: 5px solid #2F1793; ">
             <h5 style="color: #009DAE; font-size:1.3em; text-align: center; font-weight: bold;">Convierte en un Apañador </h5>
             <ol>
                 <li><p>Regístrate</p></li>
                 <li><p>Navega por las publicaciones de los emprendimientos.</p></li>
-                <li><p>Comenta! Y contactarte con los emprendedores.</p></li>
-                <li><p>Dona ApañPuntos para aportar a las causas que tu quieras.</p></li>
+                <li><p>Comenta! Y contáctate con los emprendedores.</p></li>
+                <li><p>Dona ApañaPuntos para aportar a las causas que tu quieras.</p></li>
                 <li><p>Recibe recompensas por aportar! Los emprendedores pueden ofrecer una retribución por tu ayuda.</p></li>
             </ol>
         </div>
         
-        <div class="col-6" >
+        <div class="col-md-6" >
             <h5 style="color: #009DAE; font-size:1.3em; text-align: center; font-weight: bold;">Si buscas financiamiento </h5>
             <ol>
                 <li><p>Regístrate</p></li>
                 <li><p>Cuéntanos sobre tu emprendimiento y registra sus datos.</p></li>
                 <li><p>Crea una causa que quieras financiar para tu emprendimiento.</p></li>
                 <li><p>Ponte una meta! Las personas que visiten tu causa podran comentar y aportar con "ApañaPuntos" para ayudarte a cumplirla.</p></li>
-                <li><p>Ofrece recompensas a los usuarios que aporten para incentivarlos.</p></li>
+                <li><p>Ofrece recompensas a los usuarios que apoyen tu causa, para incentivarlos.</p></li>
             </ol>
         </div>
     </div>

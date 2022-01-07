@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="col-4 personal">
-        <h2>Mis Emprendimientos</h2>
+            <h2>Mis Emprendimientos</h2>
             <ul>
                 <% current_user.projects.each do |project| %>
                     <li><%= project.name %> | <%= link_to 'ver', project_path(project.id)%></li>
@@ -32,26 +32,27 @@
             </ul>
         </div>
         <div class="col-4 personal">
-        <h2>Mis Causas</h2>
-        <ul>
-            <% @my_causes.each do |cause| %>
-                <li><%= cause.title %> | <%= link_to 'ver', cause_path(cause.id)%></li>
-            <% end %>
-        </ul>
-    </div>
-</div>
-<div id="user" class="row mt-3">
-    <div class="col-6">
-        <h2>Mis donaciones por hora</h2>
-        <div id="donation_per_hour">
-            <%= area_chart @donations_per_hour, colors: ["#109618"]  %>
+            <h2>Mis Causas</h2>
+            <ul>
+                <% @my_causes.each do |cause| %>
+                    <li><%= cause.title %> | <%= link_to 'ver', cause_path(cause.id)%></li>
+                <% end %>
+            </ul>
         </div>
     </div>
-    <div class="col-6">
-        <h2>Distribución de donaciones por causa</h2>
-        <%#TODO: cambiar las leyendas de este gráfico %>
-        <div id="donation_per_cause">
-            <%= pie_chart @donations_per_cause, label: "Value"  %>
+    <div id="user" class="row mt-3">
+        <div class="col-6">
+            <h2>Mis donaciones por hora</h2>
+            <div id="donation_per_hour">
+                <%= area_chart @donations_per_hour, colors: ["#109618"]  %>
+            </div>
         </div>
-    </div>    
+        <div class="col-6">
+            <h2>Distribución de donaciones por causa</h2>
+            <%#TODO: cambiar las leyendas de este gráfico %>
+            <div id="donation_per_cause">
+                <%= pie_chart @donations_per_cause, label: "Value"  %>
+            </div>
+        </div>    
+    </div>
 </div>
