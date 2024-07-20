@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: apaname_org
+    env: ruby
+    buildCommand: "bundle install && bundle exec rake db:migrate && bundle exec rake db:seed && bundle exec rake assets:precompile"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    plan: free
+    regions:
+      - sydney
