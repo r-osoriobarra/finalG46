@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5433
 
 development:
   <<: *default
@@ -83,3 +84,4 @@ production:
   database: apañame_production
   username: apañame
   password: <%= ENV['APAÑAME_DATABASE_PASSWORD'] %>
+  port: 5433
