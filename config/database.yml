@@ -84,4 +84,4 @@ production:
   database: apañame_production
   username: apañame
   password: <%= ENV['APAÑAME_DATABASE_PASSWORD'] %>
-  port: 5433
+  port: 5432
