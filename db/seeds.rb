@@ -14,19 +14,18 @@ end
 
 #Users
 20.times do |u|
-    User.create!(
-        name:"name",
-        surname:"surname",
-        username:"username#{u}",
-        email: "user#{u}@mail.com",
-        password: "123123",
-        password_confirmation:"123123",
-        phone_number: "16452398",
-        address: "Address user#{u} home",
-        category_id: rand(1..4),
-        user_type_id: 2,
-    )
-end
+    User.find_or_create_by(email: "user#{u}@mail.com") do |user|
+      user.name = "name"
+      user.surname = "surname"
+      user.username = "username#{u}"
+      user.password = "123123"
+      user.password_confirmation = "123123"
+      user.phone_number = "16452398"
+      user.address = "Address user#{u} home"
+      user.category_id = rand(1..4)
+      user.user_type_id = 2
+    end
+  end
 
 #admin
 User.create!(
