@@ -1,3 +1,5 @@
+User.destroy_all
+
 #UserTypes
 2.times do |t|
     UserType.create!(
