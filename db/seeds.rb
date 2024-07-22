@@ -1,4 +1,11 @@
+# Reset tables data
+Category.destroy_all
 User.destroy_all
+Project.destroy_all
+Cause.destroy_all
+Donation.destroy_all
+Comment.destroy_all
+Report.destroy_all
 
 #UserTypes
 2.times do |t|
